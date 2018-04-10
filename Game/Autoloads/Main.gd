@@ -5,6 +5,7 @@ var firebase
 
 func _ready():
 	firebase_config()
+	firebase_auth_config()
 	
 func firebase_config():
 	firebase = Engine.get_singleton("FireBase");
@@ -17,6 +18,10 @@ func firebase_config():
 		
 		firebase.init(content, get_instance_id())
 
+func firebase_auth_config():
+	if firebase != null:
+		firebase.authConfig("'Google':true,'Facebook':true")
+	
 func _receive_message(tag, from, key, data):
 	if tag == "FireBase":
 		print("From: ", from, " Key: ", key, " Data: ", data)
