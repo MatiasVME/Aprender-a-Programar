@@ -15,8 +15,12 @@ modules="org/godotengine/godot/FireBase,org/godotengine/godot/SQLBridge"
 [application]
 
 config/name="AprenderAProgramar"
-run/main_scene="res://Game/Tests/TestAdvertising.tscn"
+run/main_scene="res://Game/MainScreens/Splash.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Main="*res://Game/Autoloads/Main.gd"
 
 [display]
 
