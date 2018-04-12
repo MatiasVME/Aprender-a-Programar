@@ -44,7 +44,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Salir:rect_position")
+tracks/2/path = NodePath("Exit:rect_position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -96,7 +96,6 @@ texture = ExtResource( 2 )
 stretch_mode = 0
 
 [node name="Grid" type="GridContainer" parent="." index="1"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -114,39 +113,39 @@ size_flags_vertical = 1
 columns = 2
 _sections_unfolded = [ "Rect" ]
 
-[node name="Modos" parent="Grid" index="0" instance=ExtResource( 3 )]
+[node name="Modes" parent="Grid" index="0" instance=ExtResource( 3 )]
 editor/display_folded = false
 
-[node name="Label" parent="Grid/Modos" index="0"]
+[node name="Label" parent="Grid/Modes" index="0"]
 text = "Modos"
 
-[node name="Premios" parent="Grid" index="1" instance=ExtResource( 3 )]
+[node name="Awards" parent="Grid" index="1" instance=ExtResource( 3 )]
 editor/display_folded = false
 margin_left = 304.0
 margin_right = 604.0
 
-[node name="Label" parent="Grid/Premios" index="0"]
+[node name="Label" parent="Grid/Awards" index="0"]
 text = "Premios"
 
-[node name="Conectar" parent="Grid" index="2" instance=ExtResource( 3 )]
+[node name="Connect" parent="Grid" index="2" instance=ExtResource( 3 )]
 editor/display_folded = false
 margin_top = 172.0
 margin_bottom = 340.0
 
-[node name="Label" parent="Grid/Conectar" index="0"]
+[node name="Label" parent="Grid/Connect" index="0"]
 text = "Conectar"
 
-[node name="Opciones" parent="Grid" index="3" instance=ExtResource( 3 )]
+[node name="Options" parent="Grid" index="3" instance=ExtResource( 3 )]
 editor/display_folded = false
 margin_left = 304.0
 margin_top = 172.0
 margin_right = 604.0
 margin_bottom = 340.0
 
-[node name="Label" parent="Grid/Opciones" index="0"]
+[node name="Label" parent="Grid/Options" index="0"]
 text = "Opciones"
 
-[node name="Salir" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Exit" parent="." index="2" instance=ExtResource( 3 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -156,7 +155,7 @@ margin_top = -168.0
 margin_right = 150.0
 margin_bottom = 0.0
 
-[node name="Label" parent="Salir" index="0"]
+[node name="Label" parent="Exit" index="0"]
 text = "Salir"
 
 [node name="Black" type="ColorRect" parent="." index="3"]
@@ -213,7 +212,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -70.0
+margin_left = -176.0
 margin_top = -38.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -232,14 +231,18 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
+[connection signal="pressed" from="Grid/Modes" to="." method="_on_Modes_pressed"]
+[connection signal="pressed" from="Grid/Awards" to="." method="_on_Awards_pressed"]
+[connection signal="pressed" from="Grid/Connect" to="." method="_on_Connect_pressed"]
+[connection signal="pressed" from="Grid/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
 
-[editable path="Grid/Modos"]
+[editable path="Grid/Modes"]
 
-[editable path="Grid/Premios"]
+[editable path="Grid/Awards"]
 
-[editable path="Grid/Conectar"]
+[editable path="Grid/Connect"]
 
-[editable path="Grid/Opciones"]
+[editable path="Grid/Options"]
 
-[editable path="Salir"]
+[editable path="Exit"]

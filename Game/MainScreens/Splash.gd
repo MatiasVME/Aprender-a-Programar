@@ -4,7 +4,7 @@ var texts = [
 		"Syntax Error -- Compiler",
 		"No temo a los ordenadores; lo que temo es quedarme sin ellos -- Isaac Asimov",
 		"La simplicidad llevada al extremo se convierte en elegancia -- Jon Franklin",
-		"Is not a bug is a feature"
+		"It's not a bug, It's a feature -- Anonymous"
 	]
 
 func _ready():

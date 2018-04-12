@@ -1,5 +1,8 @@
 extends Node
 
+const RES_X = 1280
+const RES_Y = 720
+
 var version = "v0.1.0"
 var firebase
 
