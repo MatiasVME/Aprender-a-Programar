@@ -1,7 +1,7 @@
 extends Node
 
 func _ready():
-	pass
+	firebase_things()
 
 func _on_Google_pressed():
 	if Main.firebase != null:
@@ -45,20 +45,27 @@ func _on_Back_pressed():
 	get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
 
 func _on_Timer_timeout():
-	if Main.firebase != null:
-		show_all_buttons_if_can()
-	else:
-		hide_all_buttons()
+	firebase_things()
 		
 func hide_all_buttons():
 	$Google.hide()
 	$Facebook.hide()
 	$SMS.hide()
+	
+	$Title.text = "No hay conexión a internet"
 
 func show_all_buttons_if_can():
 	if Main.firebase.is_google_connected():
 		$Google.show()
 #	if Main.firebase.is_facebook_connected():
 #		$Facebook.show()
-	
+
 	$SMS.show()
+	
+	$Title.text = "Conectate con Google o invita a tus amigos por SMS"
+
+func firebase_things():
+	if Main.firebase != null:
+		show_all_buttons_if_can()
+	else:
+		hide_all_buttons()
