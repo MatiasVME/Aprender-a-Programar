@@ -55,5 +55,6 @@ margin_bottom = 84.0
 text = "Historia"
 
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="History" to="." method="_on_History_pressed"]
 
 [editable path="History"]
