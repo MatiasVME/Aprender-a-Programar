@@ -1,7 +1,5 @@
 extends Node
 
-var google_user
-
 func _ready():
 	firebase_things()
 
@@ -31,17 +29,14 @@ func hide_all_buttons():
 	
 	$Title.text = "No hay conexión a internet"
 
-func show_all_buttons_if_can(google_user):
+func show_all_buttons_if_can():
 	if Main.firebase.is_google_connected():
 		$Google.show()
 		$GoogleLogout.show()
 		
+		var google_user = Main.firebase_get_google_user()
 		if google_user != null:
-			var json_google_user = parse_json(google_user)
-			
-			$Welcome.text = str("Bienvenid@ ", json_google_user["name"])
-			
-			print("Google User: ", google_user)
+			$Welcome.text = str("Bienvenid@ ", google_user["name"])
 	else:
 		$GoogleLogout.hide()
 		$Welcome.text = "..."
@@ -54,8 +49,7 @@ func show_all_buttons_if_can(google_user):
 
 func firebase_things():
 	if Main.firebase != null:
-		google_user = Main.firebase.get_google_user()
-		show_all_buttons_if_can(google_user)
+		show_all_buttons_if_can()
 	else:
 		hide_all_buttons()
 

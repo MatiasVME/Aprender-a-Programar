@@ -24,5 +24,12 @@ func _on_Options_pressed():
 func firebase_things():
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(true)
+
+		var google_user = Main.firebase_get_google_user()
+		if google_user != null:
+			$User.text = google_user["name"]
+		else:
+			$User.text = "..."
+			
 	else:
 		$Grid/Connect.disabled = true
