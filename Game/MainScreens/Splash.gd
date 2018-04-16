@@ -11,6 +11,9 @@ func _ready():
 	randomize()
 	var rand_text_num = int(round(rand_range(0, texts.size() - 1)))
 	$Text.text = texts[rand_text_num]
+	
+	MusicManager.select_music(MusicManager.MENU)
+	MusicManager.play_music()
 
 func _on_Anim_animation_finished(anim_name):
 	get_tree().change_scene("res://Game/MainScreens/Menu.tscn")

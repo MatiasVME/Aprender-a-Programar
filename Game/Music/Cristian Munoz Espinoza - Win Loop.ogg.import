@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cristian Munoz Espinoza - Win Loop.ogg-5d2c44df5d775445370aafdaa94339b5.oggstr"
+
+[deps]
+
+source_file="res://Game/Music/Cristian Munoz Espinoza - Win Loop.ogg"
+dest_files=[ "res://.import/Cristian Munoz Espinoza - Win Loop.ogg-5d2c44df5d775445370aafdaa94339b5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

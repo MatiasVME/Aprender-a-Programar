@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Main="*res://Game/Autoloads/Main.gd"
+MusicManager="*res://Game/Autoloads/MusicManager.tscn"
 
 [display]
 
@@ -33,7 +34,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "PersistenceNode" )
+enabled=PoolStringArray( "PersistenceNode", "RPGElements" )
 
 [rendering]
 

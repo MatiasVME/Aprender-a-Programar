@@ -4,6 +4,10 @@ const RES_X = 1280
 const RES_Y = 720
 
 var version = "v0.1.0"
+var music_enable = true
+
+var pseudocode_max_level = 1
+
 var firebase
 var google_user
 
