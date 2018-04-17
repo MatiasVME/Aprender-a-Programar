@@ -1,4 +1,4 @@
-extends TextureRect
+extends Sprite
 
 func _ready():
 	randomize()

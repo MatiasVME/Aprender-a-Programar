@@ -1,7 +1,8 @@
 extends Node
 
 func _ready():
-	Main.firebase.show_banner_ad(false)
+	if Main.firebase != null:
+		Main.firebase.show_banner_ad(false)
 
 func _on_RPGDialog_changed_transmitter_name():
 	$Top/Name.text = $RPGDialog.get_transmitter_name()
@@ -17,3 +18,6 @@ func _on_RPGDialog_end_dialog():
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
+
+func _on_Next_pressed():
+	$RPGDialog.next_pressed()
