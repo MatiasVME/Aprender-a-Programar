@@ -5,6 +5,7 @@ const RES_Y = 720
 
 var version = "v0.1.0"
 var music_enable = true
+var debug = true
 
 var pseudocode_max_level = 1
 

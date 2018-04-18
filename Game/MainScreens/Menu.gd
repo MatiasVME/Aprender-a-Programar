@@ -33,3 +33,6 @@ func firebase_things():
 			
 	else:
 		$Grid/Connect.disabled = true
+
+func _on_Credits_pressed():
+	get_tree().change_scene("res://Game/MainScreens/Credits.tscn")
