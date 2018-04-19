@@ -355,10 +355,11 @@ blend_times = [  ]
 
 [node name="Timer" type="Timer" parent="." index="11"]
 process_mode = 1
-wait_time = 10.0
+wait_time = 3.0
 one_shot = false
 autostart = true
 
 [connection signal="pressed" from="X2" to="." method="_on_X2_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

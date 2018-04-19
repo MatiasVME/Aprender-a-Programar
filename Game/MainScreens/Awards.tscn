@@ -27,24 +27,25 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Pets" parent="VBox" index="0" instance=ExtResource( 3 )]
+[node name="Shop" parent="VBox" index="0" instance=ExtResource( 3 )]
 editor/display_folded = false
 
-[node name="Label" parent="VBox/Pets" index="0"]
-text = "Mascotas"
+[node name="Label" parent="VBox/Shop" index="0"]
+text = "Tienda"
 
-[node name="Score" parent="VBox" index="1" instance=ExtResource( 3 )]
+[node name="Data" parent="VBox" index="1" instance=ExtResource( 3 )]
 editor/display_folded = false
 margin_top = 172.0
 margin_bottom = 340.0
 
-[node name="Label" parent="VBox/Score" index="0"]
-text = "Puntaje"
+[node name="Label" parent="VBox/Data" index="0"]
+text = "Datos"
 
 [node name="Back" parent="." index="2" instance=ExtResource( 4 )]
 
+[connection signal="pressed" from="VBox/Data" to="." method="_on_Data_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 
-[editable path="VBox/Pets"]
+[editable path="VBox/Shop"]
 
-[editable path="VBox/Score"]
+[editable path="VBox/Data"]

@@ -3,7 +3,7 @@ extends Node
 const RES_X = 1280
 const RES_Y = 720
 
-var version = "v0.1.0"
+var version = "v0.1.0-dev"
 var music_enable = true
 var debug = true
 
@@ -29,9 +29,12 @@ var money_value_for_dialogue = 3
 # Pets
 var pets_names = ["Pipo", "Stuar"]
 
+var data
+
 func _ready():
 	# Por el momento
 	Persistence.remove_all_data()
+	data = Persistence.get_data()
 	
 	randomize()
 	print(OS.get_user_data_dir())
@@ -47,9 +50,8 @@ func reset_values():
 	win_money = 0
 
 func firebase_config():
-	firebase = Engine.get_singleton("FireBase");
-	
 	if OS.get_name() == "Android":
+		firebase = Engine.get_singleton("FireBase")
 		var file = File.new()
 		file.open("res://godot-firebase-config.json", file.READ)
 		var content = file.get_as_text()
@@ -78,7 +80,6 @@ func _receive_message(tag, from, key, data):
 			else:
 				print("no cargado")
 				admob_video_is_loaded = false
-	pass
 
 func firebase_get_google_user():
 	if firebase != null:
@@ -92,8 +93,6 @@ func debug(message, something1 = "", something2 = ""):
 		print("[RPGElements] ", message, " ", something1, " ", something2)
 
 func create_data_if_not_exist():
-	var data = Persistence.get_data()
-	
 	# Existe un usuario de Google?
 	var g_user = firebase_get_google_user()
 	
@@ -111,6 +110,7 @@ func create_data_if_not_exist():
 		data["Money"] = 50
 		data["Score"] = 0
 		data["DataVersion"] = 1
+		data["PseudocodePastsLevels"] = 1
 		
 		Persistence.save_data()
 

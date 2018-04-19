@@ -24,8 +24,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 64.0
 margin_right = 1280.0
-margin_bottom = 112.0
+margin_bottom = 176.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -44,6 +45,8 @@ max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="TextCredits" parent="." index="2" instance=ExtResource( 4 )]
+margin_top = 176.0
+margin_bottom = 576.0
 bbcode_enabled = true
 bbcode_text = "[center]
 [color=red]Programación[/color]

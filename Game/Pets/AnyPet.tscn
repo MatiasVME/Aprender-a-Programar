@@ -6,16 +6,17 @@
 
 [node name="AnyPet" type="Node2D" index="0"]
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="ref1" type="Sprite" parent="." index="0"]
-visible = false
 self_modulate = Color( 1, 1, 1, 0.133333 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility" ]
 
 [node name="ref2" type="Sprite" parent="." index="1"]
-visible = false
 self_modulate = Color( 1, 1, 1, 0.133333 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 

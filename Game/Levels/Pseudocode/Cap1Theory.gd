@@ -1,14 +1,11 @@
 extends Node
 
 var dialog_num = 1
-var data
 
 func _ready():
 	var rpg_dialog = $TheoryTemplate/RPGDialog
-	
-	data = Persistence.get_data(Main.current_user)
 	 
-	var pet_name = data["PetSelected"]
+	var pet_name = Main.data["PetSelected"]
 	
 	rpg_dialog.add_section(pet_name, "Hola ¿Qué tal? Estimado alumno. Yo seré su estimado profesor de programación... ¿Qué?, ¿Que tiene de malo ser como soy?")
 	rpg_dialog.add_section(pet_name, "Este apartado es para explicarle como va el tema, de esta aplicación.")
@@ -29,7 +26,9 @@ func _ready():
 		Main.firebase.tutorial_begin()
 
 func _on_RPGDialog_changed_text():
-	$Anim.play(str("anim", dialog_num))
+	
+	if $Anim.has_animation(str("anim", dialog_num)):
+		$Anim.play(str("anim", dialog_num))
 	
 	match dialog_num:
 		2:
@@ -53,4 +52,8 @@ func _on_Anim_animation_finished(anim_name):
 		if Main.firebase != null:
 			Main.firebase.tutorial_complete()
 		
+		if Main.data["PseudocodePastsLevels"] == 1:
+			Main.data["PseudocodePastsLevels"] += 1
+			Persistence.save_data()
+			
 		get_tree().change_scene("res://Game/Levels/Win.tscn")

@@ -1,7 +1,11 @@
 extends Node
 
 func _ready():
-	pass
+	enable_buttons()
+
+func enable_buttons():
+	for i in range(1, Main.data["PseudocodePastsLevels"] + 1):
+		get_node(str("Panel/Margin/Scroll/Grid/Cap", i)).disabled = false
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://Game/MainScreens/Modes.tscn")

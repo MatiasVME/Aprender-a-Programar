@@ -107,7 +107,7 @@ margin_left = 304.0
 margin_right = 604.0
 
 [node name="Label" parent="Grid/Awards" index="0"]
-text = "Premios"
+text = "Otros"
 
 [node name="Connect" parent="Grid" index="2" instance=ExtResource( 3 )]
 editor/display_folded = false
