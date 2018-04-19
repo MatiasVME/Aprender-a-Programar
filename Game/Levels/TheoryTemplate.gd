@@ -3,6 +3,8 @@ extends Node
 func _ready():
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(false)
+		
+	Main.reset_values()
 
 func _on_RPGDialog_changed_transmitter_name():
 	$Top/Name.text = $RPGDialog.get_transmitter_name()

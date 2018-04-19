@@ -12,16 +12,27 @@ var pseudocode_max_level = 1
 var firebase
 var google_user
 
+# User
+var current_user = null
+
 # Rewards
 var admob_video_is_loaded = false
 var reward_amount = 1
 
-var value_for_dialogue = 3 # TODO
+# Score and money
+var win_score = 0
+var win_money = 0
 
+var score_value_for_dialogue = 3 # TODO
+var money_value_for_dialogue = 3
+ 
 # Pets
 var pets_names = ["Pipo", "Stuar"]
 
 func _ready():
+	# Por el momento
+	Persistence.remove_all_data()
+	
 	randomize()
 	print(OS.get_user_data_dir())
 	
@@ -30,7 +41,11 @@ func _ready():
 	google_user = firebase_get_google_user()
 	
 	create_data_if_not_exist()
-	
+
+func reset_values():
+	win_score = 0
+	win_money = 0
+
 func firebase_config():
 	firebase = Engine.get_singleton("FireBase");
 	
@@ -87,13 +102,14 @@ func create_data_if_not_exist():
 	print(g_user)
 	
 	if data.empty() and g_user == null:
-		var pet = pets_names[int(round(rand_range(0, pets_names.size())))]
+		var pet = pets_names[int(round(rand_range(0, pets_names.size() - 1)))]
 		var pets = []
 		pets.append(pet)
 		
 		data["Pets"] = pets
+		data["PetSelected"] = pets[0]
 		data["Money"] = 50
-		data["Points"] = 0
+		data["Score"] = 0
 		data["DataVersion"] = 1
 		
 		Persistence.save_data()
