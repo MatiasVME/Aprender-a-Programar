@@ -1,7 +1,11 @@
 extends Node
 
+var get_reward = false
+
 func _ready():
+	Main.reward_amount = 1
 	updated_x2()
+	update_text()
 
 func _on_X2_pressed():
 	if Main.firebase != null:
@@ -11,15 +15,16 @@ func _on_Timer_timeout():
 	updated_x2()
 	
 func updated_x2():
-	print("Main.firebase.request_rewarded_video_status():", Main.firebase.request_rewarded_video_status())
-	print("Main.firebase: ", Main.firebase)
-	
-	if Main.firebase != null and Main.firebase.request_rewarded_video_status() != null:
+	if Main.firebase != null and Main.admob_video_is_loaded and not get_reward:
 		$X2.show()
-		print("puede mostrarse")
 	else:
 		$X2.hide()
-		print("nope")
+
+	update_text()
 
 func _on_Back_pressed():
-	get_tree().change_scene("")
+	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
+	
+	if Main.firebase != null:
+		Main.firebase.show_banner_ad(true)
+	
