@@ -6,7 +6,7 @@ const RES_Y = 720
 var version = "v0.1.0-dev"
 var music_enable = true
 
-var debug = false
+var debug = true
 
 var pseudocode_max_level = 1
 
@@ -30,7 +30,7 @@ enum CurrentStage {THEORY, PRACTICE}
 var current_stage = -1
 
 # Pets
-var pets_names = ["Pipo", "Stuar"]
+var pets_names = ["Pipo", "Stuar", "Posholo", "Kripo"]
 
 var data
 
