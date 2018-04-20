@@ -46,6 +46,8 @@ text = "Práctica"
 
 [node name="Back" parent="." index="2" instance=ExtResource( 4 )]
 
+[connection signal="pressed" from="VBox/Theory" to="." method="_on_Theory_pressed"]
+[connection signal="pressed" from="VBox/Practice" to="." method="_on_Practice_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 
 [editable path="VBox/Theory"]

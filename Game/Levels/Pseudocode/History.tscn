@@ -103,14 +103,13 @@ disabled = true
 text = "Introducción"
 
 [node name="Cap2" parent="Panel/Margin/Scroll/Grid" index="1" instance=ExtResource( 4 )]
-editor/display_folded = true
 margin_left = 404.0
 margin_right = 804.0
 margin_bottom = 224.0
 disabled = true
 
 [node name="Label" parent="Panel/Margin/Scroll/Grid/Cap2" index="0"]
-text = "Algunos conceptos"
+text = "¿Programar?"
 
 [node name="Cap3" parent="Panel/Margin/Scroll/Grid" index="2" instance=ExtResource( 4 )]
 editor/display_folded = true
