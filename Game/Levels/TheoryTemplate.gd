@@ -1,5 +1,7 @@
 extends Node
 
+var ot_next_pressed = true
+
 func _ready():
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(false)
@@ -22,4 +24,18 @@ func _on_Back_pressed():
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
 
 func _on_Next_pressed():
-	$RPGDialog.next_pressed()
+	if ot_next_pressed:
+		ot_next_pressed = false
+		
+		$RPGDialog.next_pressed()
+		$Bottom/Next.hide()
+
+func _on_ButtonDelay_timeout():
+	ot_next_pressed = true
+	$Bottom/Next.show()
+
+func _on_RPGDialog_changed_text():
+	var cap = str("Cap", Main.current_chapter)
+	# Va sumando el score y dinero ganado por leer los dialogos
+	Main.win_money += Main.data["Chapters"][cap]["MoneyValueForDialogue"]
+	Main.win_score += Main.data["Chapters"][cap]["ScoreValueForDialogue"]

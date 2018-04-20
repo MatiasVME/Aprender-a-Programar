@@ -5,7 +5,8 @@ const RES_Y = 720
 
 var version = "v0.1.0-dev"
 var music_enable = true
-var debug = true
+
+var debug = false
 
 var pseudocode_max_level = 1
 
@@ -23,21 +24,26 @@ var reward_amount = 1
 var win_score = 0
 var win_money = 0
 
-var score_value_for_dialogue = 3 # TODO
-var money_value_for_dialogue = 3
- 
+# Chapters
+var current_chapter
+enum CurrentStage {THEORY, PRACTICE}
+var current_stage = -1
+
 # Pets
 var pets_names = ["Pipo", "Stuar"]
 
 var data
 
 func _ready():
-	# Por el momento
-	Persistence.remove_all_data()
-	data = Persistence.get_data()
-	
 	randomize()
-	print(OS.get_user_data_dir())
+	
+	# Por el momento
+	if debug:
+		Persistence.remove_all_data()
+	
+	data = Persistence.get_data(Main.current_user)
+	
+	debug(OS.get_user_data_dir())
 	
 	firebase_config()
 	firebase_auth_config()
@@ -64,22 +70,32 @@ func firebase_auth_config():
 		firebase.authConfig("'Google':true,'Facebook':true")
 	
 func _receive_message(tag, from, key, data):
+	print("tag: ", tag)
+	print("from: ", from)
+	print("key: ", key)
+	print("data: ", data)
+	
 	if tag == "FireBase" and from == "AdMob":
 		if key == "AdMobReward":
 			# when rewared video play complete
-			print("json data with [RewardType & RewardAmount]: ", data)
+			debug("json data with [RewardType & RewardAmount]: ", data)
 			reward_amount = data["RewardAmount"]
-
 		elif key == "AdMob_Video":
 			# when rewarded video loaded
 			# data will be `loaded` or `load_failed and `loaded` or `not_loaded` with `firebase.request_rewarded_video_status()`
-			print("AdMob rewarded video status is ", data)
+			debug("AdMob rewarded video status is ", data)
 			
 			if data["status"] == "loaded":
 				admob_video_is_loaded = true
 			else:
-				print("no cargado")
+				debug("no cargado")
 				admob_video_is_loaded = false
+		
+	if tag == "FireBase" and from == "Auth":
+		if key == "GoogleLogin" && data == "true":
+			current_user = firebase_get_google_user()["name"]
+			self.data = Persistence.get_data(current_user)
+			create_data_if_not_exist()
 
 func firebase_get_google_user():
 	if firebase != null:
@@ -90,29 +106,74 @@ func firebase_get_google_user():
 			
 func debug(message, something1 = "", something2 = ""):
 	if debug:
-		print("[RPGElements] ", message, " ", something1, " ", something2)
+		print("[AAP] ", message, " ", something1, " ", something2)
 
 func create_data_if_not_exist():
-	# Existe un usuario de Google?
-	var g_user = firebase_get_google_user()
-	
-	print("____")
-	print("data: ", data)
-	print(g_user)
-	
-	if data.empty() and g_user == null:
-		var pet = pets_names[int(round(rand_range(0, pets_names.size() - 1)))]
+	if data.empty():
+		var rand_pet = int(round(rand_range(0, pets_names.size() - 1)))
+		debug("rand_pet: ", rand_pet)
+		var pet = pets_names[rand_pet]
 		var pets = []
 		pets.append(pet)
 		
 		data["Pets"] = pets
-		data["PetSelected"] = pets[0]
+		data["PetSelected"] = pet
 		data["Money"] = 50
 		data["Score"] = 0
 		data["DataVersion"] = 1
 		data["PseudocodePastsLevels"] = 1
+		data["Chapters"] = {
+			Cap1 = {
+				ScoreValueForDialogue = 3,
+				MoneyValueForDialogue = 3,
+				TheoryCompleted = false,
+				PracticeCompleted = true
+			},
+			Cap2 = {
+				ScoreValueForDialogue = 3,
+				MoneyValueForDialogue = 3,
+				TheoryCompleted = false,
+				PracticeCompleted = false
+			},
+			Cap3 = {
+				ScoreValueForDialogue = 3,
+				MoneyValueForDialogue = 3,
+				TheoryCompleted = false,
+				PracticeCompleted = false
+			},
+			Cap4 = {
+				ScoreValueForDialogue = 3,
+				MoneyValueForDialogue = 3,
+				TheoryCompleted = false,
+				PracticeCompleted = false
+			},
+			Cap5 = {
+				ScoreValueForDialogue = 3,
+				MoneyValueForDialogue = 3,
+				TheoryCompleted = false,
+				PracticeCompleted = false
+			},
+			Cap6 = {
+				ScoreValueForDialogue = 3,
+				MoneyValueForDialogue = 3,
+				TheoryCompleted = false,
+				PracticeCompleted = false
+			},
+			Cap7 = {
+				ScoreValueForDialogue = 3,
+				MoneyValueForDialogue = 3,
+				TheoryCompleted = false,
+				PracticeCompleted = false
+			},
+			Cap8 = {
+				ScoreValueForDialogue = 3,
+				MoneyValueForDialogue = 3,
+				TheoryCompleted = false,
+				PracticeCompleted = false
+			}
+		} 
 		
-		Persistence.save_data()
+		Persistence.save_data(current_user)
 
 #func firebase_send_custom(event_key, event_value):
 #	if Main.firebase != null:

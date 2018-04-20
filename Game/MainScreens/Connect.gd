@@ -10,7 +10,7 @@ func _on_Google_pressed():
 
 			var new_texture = load("res://Game/Buttons/Social/Google-ok.png")
 			$Google.texture_normal = new_texture
-
+	
 func _on_SMS_pressed(): # TODO
 	if Main.firebase != null:
 		# TODO: Cambiar enlace
@@ -54,4 +54,5 @@ func firebase_things():
 		hide_all_buttons()
 
 func _on_GoogleLogout_pressed():
+	Main.current_user = null
 	Main.firebase.google_sign_out()

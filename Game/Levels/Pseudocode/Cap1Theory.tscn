@@ -247,6 +247,7 @@ anims/anim6 = SubResource( 5 )
 blend_times = [  ]
 
 [connection signal="changed_text" from="TheoryTemplate/RPGDialog" to="." method="_on_RPGDialog_changed_text"]
+[connection signal="changed_text" from="TheoryTemplate/RPGDialog" to="TheoryTemplate" method="_on_RPGDialog_changed_text"]
 [connection signal="animation_finished" from="TheoryTemplate/Anim" to="." method="_on_Anim_animation_finished"]
 
 [editable path="AnyPet"]

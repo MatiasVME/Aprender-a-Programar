@@ -36,10 +36,6 @@ func _on_RPGDialog_changed_text():
 			
 	dialog_num += 1
 	
-	# Va sumando el score y dinero ganado por leer los dialogos
-	Main.win_money += Main.money_value_for_dialogue
-	Main.win_score += Main.score_value_for_dialogue
-
 var show_times = 0
 
 func _on_Anim_animation_finished(anim_name):
@@ -54,6 +50,6 @@ func _on_Anim_animation_finished(anim_name):
 		
 		if Main.data["PseudocodePastsLevels"] == 1:
 			Main.data["PseudocodePastsLevels"] += 1
-			Persistence.save_data()
+			Persistence.save_data(Main.current_user)
 			
 		get_tree().change_scene("res://Game/Levels/Win.tscn")

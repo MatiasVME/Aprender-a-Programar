@@ -25,7 +25,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 resource_name = "finish"
 length = 2.0
@@ -44,9 +44,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource_name = "show"
 length = 0.4
 loop = false
 step = 0.1
@@ -204,7 +203,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_editor_icon": ExtResource( 8 )
 }
-debug = true
+debug = false
 
 [node name="Curtain" type="ColorRect" parent="." index="4"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -229,9 +228,15 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/finish = SubResource( 4 )
-anims/show = SubResource( 3 )
+anims/finish = SubResource( 3 )
+anims/show = SubResource( 4 )
 blend_times = [  ]
+
+[node name="ButtonDelay" type="Timer" parent="." index="6"]
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = true
 
 [connection signal="pressed" from="Bottom/Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="Bottom/Back" to="." method="_on_Back_pressed"]
@@ -239,3 +244,4 @@ blend_times = [  ]
 [connection signal="end_dialog" from="RPGDialog" to="." method="_on_RPGDialog_end_dialog"]
 [connection signal="start_dialog" from="RPGDialog" to="." method="_on_RPGDialog_start_dialog"]
 [connection signal="updated_text" from="RPGDialog" to="." method="_on_RPGDialog_updated_text"]
+[connection signal="timeout" from="ButtonDelay" to="." method="_on_ButtonDelay_timeout"]

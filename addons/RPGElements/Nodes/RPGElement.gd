@@ -22,7 +22,7 @@
 
 extends Node
 
-export (bool) var debug = true
+export (bool) var debug = false
 
 var Persistence
 

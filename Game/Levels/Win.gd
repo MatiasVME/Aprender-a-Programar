@@ -1,15 +1,12 @@
 extends Node
 
 var ot_is_get_reward = true
-var data
 
 func _ready():
 	Main.reward_amount = 1
 	
 	MusicManager.select_music(MusicManager.WIN)
 	MusicManager.play_music()
-	
-	data = Persistence.get_data()
 	
 	updated_x2()
 	update_text()
@@ -48,17 +45,17 @@ func update_text():
 	$WinScore.text = str("Puntaje Ganado: ", Main.win_score)
 	$WinMoney.text = str("Dinero Ganado: ", Main.win_money)
 	
-	if not data.empty():
+	if not Main.data.empty():
 		# NOTE: El score no se añade en este momento, primero hay que saber
 		# si el player le da al botón X2
-		$TotalScore.text = str("Puntaje Total: ", data["Score"] + Main.win_score)
-		$TotalMoney.text = str("Dinero Total: ", data["Money"] + Main.win_money)
+		$TotalScore.text = str("Puntaje Total: ", Main.data["Score"] + Main.win_score)
+		$TotalMoney.text = str("Dinero Total: ", Main.data["Money"] + Main.win_money)
 
 func save_all():
-	data["Score"] += Main.win_score
-	data["Money"] += Main.win_money
+	Main.data["Score"] += Main.win_score
+	Main.data["Money"] += Main.win_money
 	
-	Persistence.save_data()
+	Persistence.save_data(Main.current_user)
 
 	if Main.firebase != null:
 		Main.firebase.earn_currency("Money", Main.win_money)
@@ -72,9 +69,48 @@ func _on_Back_pressed():
 	
 	save_all()
 	
+	var practice_completed = Main.data["Chapters"][str("Cap", Main.current_chapter)]["PracticeCompleted"]
+	if practice_completed:
+		Main.current_chapter += 1
+	
+	Main.data["Chapters"][str("Cap", Main.current_chapter)]["TheoryCompleted"] = true
+	
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
 	
-
 func _on_Continue_pressed():
 	$Continue.hide()
+	
 	save_all()
+	
+	var practice_completed = Main.data["Chapters"][str("Cap", Main.current_chapter)]["PracticeCompleted"]
+	if practice_completed:
+		Main.current_chapter += 1
+	
+	$Timer.stop() # Para el tiempo para que no se actualice el texto
+	
+	MusicManager.select_music(MusicManager.MENU)
+	MusicManager.play_music()
+	
+	if Main.current_stage == Main.THEORY and Main.current_chapter != 1:
+		Main.current_stage = Main.PRACTICE
+		var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
+		get_tree().change_scene(scene_path)
+	else:
+		Main.current_satage = Main.Theory
+		var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Practice.tscn")
+		get_tree().change_scene(scene_path)
+		
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
