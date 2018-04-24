@@ -72,7 +72,7 @@ Matías Muñoz Espinoza: Lost Loop
 Arte
 Matías Muñoz Espinoza: Fondos, Mascotas, Botones
 "
-_sections_unfolded = [ "BBCode", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "BBCode", "custom_fonts" ]
 
 [node name="Back" parent="." index="3" instance=ExtResource( 5 )]
 

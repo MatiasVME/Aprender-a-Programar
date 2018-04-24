@@ -3,7 +3,7 @@
 [ext_resource path="res://Game/MainScreens/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Game/Backgrounds/RandomBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Buttons/MenuButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Game/Fonts/Roboto/Roboto-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Game/Fonts/Nokia/nokia.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Game/Fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -177,7 +177,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.133333, 0.462745, 0.105882, 1 )
+custom_colors/font_color = Color( 0.223529, 0.745098, 0.180392, 1 )
 custom_colors/font_color_shadow = Color( 0.0509804, 0.290196, 0.0431373, 1 )
 text = "Aprender a Programar"
 align = 1

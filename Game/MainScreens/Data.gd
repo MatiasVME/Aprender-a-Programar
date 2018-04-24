@@ -1,6 +1,5 @@
 extends Node
 
-
 func _ready():
 	if Main.current_user == null:
 		$User.text = str("Usuario: Predeterminado")

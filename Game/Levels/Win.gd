@@ -10,6 +10,10 @@ func _ready():
 	
 	updated_x2()
 	update_text()
+	
+	if Main.debug and Main.current_chapter == null:
+		Main.current_chapter = 1
+		Main.current_stage = Main.THEORY
 
 func _on_X2_pressed():
 	if Main.firebase != null:
@@ -51,66 +55,66 @@ func update_text():
 		$TotalScore.text = str("Puntaje Total: ", Main.data["Score"] + Main.win_score)
 		$TotalMoney.text = str("Dinero Total: ", Main.data["Money"] + Main.win_money)
 
-func save_all():
+func save_all(is_continue = false):
 	Main.data["Score"] += Main.win_score
 	Main.data["Money"] += Main.win_money
 	
-	Persistence.save_data(Main.current_user)
+	if Main.current_stage == Main.THEORY:
+		var cap = str("Cap", Main.current_chapter)
+		
+		if Main.data["Chapters"][cap]["ScoreValueForDialogue"] > 1:
+			Main.data["Chapters"][cap]["ScoreValueForDialogue"] -= 1
+		if Main.data["Chapters"][cap]["MoneyValueForDialogue"] > 1:
+			Main.data["Chapters"][cap]["MoneyValueForDialogue"] -= 1
 
 	if Main.firebase != null:
 		Main.firebase.earn_currency("Money", Main.win_money)
+	
+	MusicManager.select_music(MusicManager.MENU)
+	MusicManager.play_music()
+	
+	$Timer.stop() # Para el tiempo para que no se actualice el texto
+	
+	if Main.current_stage == Main.THEORY and Main.current_chapter != 1:
+		var cap = str("Cap", Main.current_chapter)
+		Main.data["Chapters"][cap]["TheoryCompleted"] = true
+		Main.current_stage = Main.PRACTICE
+		
+		if is_continue:
+			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Practice.tscn")
+			get_tree().change_scene(scene_path)
+		
+	elif Main.current_chapter == 1:
+		var cap = str("Cap", Main.current_chapter)
+		Main.data["Chapters"][cap]["TheoryCompleted"] = true
+		Main.current_chapter = 2
+		Main.current_stage = Main.THEORY
+		
+		if is_continue:
+			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
+			get_tree().change_scene(scene_path)
+	else: # Si es practica?
+		var cap = str("Cap", Main.current_chapter)
+		Main.data["Chapters"][cap]["PracticeCompleted"] = true
+		Main.current_chapter += 1
+		Main.current_stage = Main.THEORY
+		
+		if is_continue:
+			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
+			get_tree().change_scene(scene_path)
+		
+	Persistence.save_data(Main.current_user)
 
 func _on_Back_pressed():
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(true)
-		
-	MusicManager.select_music(MusicManager.MENU)
-	MusicManager.play_music()
-	
+
 	save_all()
-	
-	var practice_completed = Main.data["Chapters"][str("Cap", Main.current_chapter)]["PracticeCompleted"]
-	if practice_completed:
-		Main.current_chapter += 1
-	
-	Main.data["Chapters"][str("Cap", Main.current_chapter)]["TheoryCompleted"] = true
 	
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
 	
 func _on_Continue_pressed():
 	$Continue.hide()
 	
-	save_all()
-	
-	var practice_completed = Main.data["Chapters"][str("Cap", Main.current_chapter)]["PracticeCompleted"]
-	if practice_completed:
-		Main.current_chapter += 1
-	
-	$Timer.stop() # Para el tiempo para que no se actualice el texto
-	
-	MusicManager.select_music(MusicManager.MENU)
-	MusicManager.play_music()
-	
-	if Main.current_stage == Main.THEORY and Main.current_chapter != 1:
-		Main.current_stage = Main.PRACTICE
-		var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
-		get_tree().change_scene(scene_path)
-	else:
-		Main.current_satage = Main.Theory
-		var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Practice.tscn")
-		get_tree().change_scene(scene_path)
-		
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	save_all(true)
 	
