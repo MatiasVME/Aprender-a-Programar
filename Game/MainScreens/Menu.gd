@@ -4,6 +4,11 @@ func _ready():
 	firebase_things()
 	
 	$Version.text = Main.version
+	
+	if Main.firebase != null:
+		$Notes/Text.bbcode_text = Main.firebase.getRemoteValue("welcome_message_1")
+	else:
+		$Notes.hide()
 
 func _on_Connect_pressed():
 	# TODO: Hacer una animación para cambiar de escena
@@ -36,3 +41,6 @@ func firebase_things():
 
 func _on_Credits_pressed():
 	get_tree().change_scene("res://Game/MainScreens/Credits.tscn")
+
+func _on_Text_meta_clicked(meta):
+	OS.shell_open(meta)

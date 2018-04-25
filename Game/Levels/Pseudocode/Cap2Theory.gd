@@ -16,7 +16,7 @@ func _ready():
 	rpg_dialog.add_section(pet_name, "Pero eso no quiere decir que nos vamos a saltar algúnos conceptos básicos.")
 	rpg_dialog.add_section(pet_name, "Hemos hablado de programación todo el tiempo, pero que significa. ¿Qué es programar?")
 	rpg_dialog.add_section(pet_name, "Programar es el proceso de diseñar, codificar, depurar y mantener el código fuente de programas de computadora.")
-	rpg_dialog.add_section(pet_name, "Bueno, bueno, bueno... Cuando hablamos de diseñar, nos referimos a elaborar una solución para un problema, este problema se puede solucionar de varias formas.")
+	rpg_dialog.add_section(pet_name, "Bueno, bueno, bueno... Cuando hablamos de diseñar, nos referimos a elaborar una solución para un problema o un conjunto de ellos, este o estos problemas se puede solucionar de varias formas.")
 	rpg_dialog.add_section(pet_name, "Hay muchas formas de solucionar un problema, en informática se usan lenguajes de programación o también lenguajes de modelado, también podemos usar pseudocódigo que es lo que haremos nosotros.")
 	rpg_dialog.add_section(pet_name, "Nos concentraremos en la lógica de los lenguajes de programación, de momento no vamos a entrar en detalle acerca de los lenguajes de modelado.")
 	rpg_dialog.add_section(pet_name, "Usted, estimado, solo sepa que existen esos lenguajes de modelado. En la imágen vemos un diagrama hecho con UML.")
