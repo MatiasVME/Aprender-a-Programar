@@ -5,8 +5,10 @@ func _ready():
 	
 	$Version.text = Main.version
 	
+	# El bbcode_text tiene que estar vacio
 	if Main.firebase != null:
-		$Notes/Text.bbcode_text = Main.firebase.getRemoteValue("welcome_message_1")
+		if $Notes/Text.bbcode_text == "":
+			$Notes/Text.bbcode_text = Main.firebase.getRemoteValue("welcome_message_1")
 	else:
 		$Notes.hide()
 

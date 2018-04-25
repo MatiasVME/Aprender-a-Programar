@@ -70,8 +70,12 @@ func save_all(is_continue = false):
 	if Main.firebase != null:
 		Main.firebase.earn_currency("Money", Main.win_money)
 	
-	MusicManager.select_music(MusicManager.MENU)
-	MusicManager.play_music()
+	if is_continue == true:
+		MusicManager.select_music(MusicManager.THEORY)
+		MusicManager.play_music()
+	else:
+		MusicManager.select_music(MusicManager.MENU)
+		MusicManager.play_music()
 	
 	$Timer.stop() # Para el tiempo para que no se actualice el texto
 	

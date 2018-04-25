@@ -13,6 +13,10 @@ func _on_Back_pressed():
 func _on_Cap1_pressed():
 	Main.current_chapter = 1
 	Main.current_stage = Main.THEORY
+	
+	MusicManager.select_music(MusicManager.THEORY)
+	MusicManager.play_music()
+	
 	get_tree().change_scene("res://Game/Levels/Pseudocode/Cap1Theory.tscn")
 
 func _on_Cap2_pressed():
@@ -21,4 +25,5 @@ func _on_Cap2_pressed():
 
 func _on_Cap3_pressed():
 	Main.current_chapter = 3
+	
 	get_tree().change_scene("res://Game/Levels/TheoryAndPractice.tscn")

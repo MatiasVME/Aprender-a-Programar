@@ -54,8 +54,7 @@ bbcode_text = "[center]
 
 [color=red]Música[/color]
 [color=blue]Cristian Muñoz Espinoza: Win Loop[/color]
-[color=blue]Levc: Menu Loop[/color]
-[color=blue]Matías Muñoz Espinoza: Lost Loop[/color]
+[color=blue]Levc: Menu Loop, Theory Loop[/color]
 
 [color=red]Arte[/color]
 [color=blue]Matías Muñoz Espinoza: Fondos, Mascotas, Botones[/color]
@@ -66,13 +65,12 @@ Matías Muñoz Espinoza
 
 Música
 Cristian Muñoz Espinoza: Win Loop
-Levc: Menu Loop
-Matías Muñoz Espinoza: Lost Loop
+Levc: Menu Loop, Theory Loop
 
 Arte
 Matías Muñoz Espinoza: Fondos, Mascotas, Botones
 "
-_sections_unfolded = [ "BBCode", "custom_fonts" ]
+_sections_unfolded = [ "BBCode", "custom_colors", "custom_constants", "custom_fonts" ]
 
 [node name="Back" parent="." index="3" instance=ExtResource( 5 )]
 
