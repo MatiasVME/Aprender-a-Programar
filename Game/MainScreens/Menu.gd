@@ -6,8 +6,8 @@ func _ready():
 	$Version.text = Main.version
 	
 	# El bbcode_text tiene que estar vacio
-	if Main.firebase != null:
-		if $Notes/Text.bbcode_text == "":
+	print("sd: ", $Notes/Text.bbcode_text)
+	if Main.firebase != null and $Notes/Text.bbcode_text == "" or $Notes/Text.bbcode_text == null:
 			$Notes/Text.bbcode_text = Main.firebase.getRemoteValue("welcome_message_1")
 	else:
 		$Notes.hide()
@@ -37,7 +37,6 @@ func firebase_things():
 			$User.text = google_user["name"]
 		else:
 			$User.text = "..."
-			
 	else:
 		$Grid/Connect.disabled = true
 

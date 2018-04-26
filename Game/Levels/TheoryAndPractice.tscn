@@ -40,6 +40,7 @@ editor/display_folded = true
 margin_top = 228.0
 margin_right = 400.0
 margin_bottom = 452.0
+disabled = true
 
 [node name="Label" parent="VBox/Practice" index="0"]
 text = "Práctica"

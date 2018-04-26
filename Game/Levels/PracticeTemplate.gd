@@ -7,9 +7,14 @@ var current_quiz_num = 0
 var lifes
 
 func _ready():
-	pass
+	# Interstitial
+	if Main.firebase != null:
+		Main.firebase.show_interstitial_ad()
 
 func _on_Back_pressed():
+	if Main.firebase != null:
+		Main.firebase.show_banner_ad(true)
+	
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
 
 func next_quiz():
@@ -28,9 +33,8 @@ func next_quiz():
 				prepare_three_alt(current_quiz)
 				$Anim.play("ta_show")
 	else:
-		# Finish (por el momento)
-		get_tree().change_scene("res://Game/MainScreens/Credits.tscn")
-		pass
+		# Finish
+		$Anim.play("finish")
 
 	current_quiz_num += 1
 
@@ -78,6 +82,8 @@ func _on_TFOpt2_pressed():
 func _on_Anim_animation_finished(anim_name):
 	if anim_name == "tf_hide" or anim_name == "ta_hide":
 		next_quiz()
+	elif anim_name == "finish":
+		get_tree().change_scene("res://Game/Levels/Win.tscn")
 
 func _on_TAOpt1_pressed():
 	pressed_alternative(0)

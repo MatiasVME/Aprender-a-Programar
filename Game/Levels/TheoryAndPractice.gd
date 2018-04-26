@@ -1,6 +1,15 @@
 extends Node
 
-func _on_Back_pressed():
+func _ready():
+	if Main.current_chapter == null:
+		Main.current_chapter = 1
+	
+	var cap = str("Cap", Main.current_chapter)
+	
+	if Main.data["Chapters"][cap]["TheoryCompleted"] == true:
+		$VBox/Practice.disabled = false
+
+func _on_Back_pressed():		
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
 
 func _on_Theory_pressed():

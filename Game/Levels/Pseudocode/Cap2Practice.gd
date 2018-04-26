@@ -32,7 +32,7 @@ func _ready():
 
 	quiz3.set_question("¿Qué es codificar?")
 	quiz3.add_alternative("Llevar la solución del problema a código", true) # Alternativa 0
-	quiz3.add_alternative("Testiar el producto de software", false)
+	quiz3.add_alternative("Testear el producto de software", false)
 	quiz3.add_alternative("Escribir en el teclado", false)
 	quiz3.disarray_alternatves()
 
@@ -50,6 +50,40 @@ func _ready():
 	
 	# ---
 	
+	var quiz5 = quiz.duplicate()
+
+	quiz5.set_question("¿Qué es depurar?")
+	quiz5.add_alternative("Identificar y corregir errores de programación", true) # Alternativa 0
+	quiz5.add_alternative("Hacer diagramas de el problema", false)
+	quiz5.add_alternative("Testear y hacer diagramas de el problema", false)
+	quiz5.disarray_alternatves()
+
+	all_quiz.append(quiz5)
+
+	# ---
+	
+	var quiz6 = quiz.duplicate()
+	
+	quiz6.set_question("Mantener es la modificación de un producto de software -antes- de la entrega")
+	quiz6.add_alternative("V", false) 
+	quiz6.add_alternative("F", true) 
+	
+	all_quiz.append(quiz6)
+	
+	# --- para corregir errores, mejorar el rendimiento, u otros atributos
+	
+	var quiz7 = quiz.duplicate()
+
+	quiz7.set_question("¿Cuál de estas actividades no implica mantener código fuente?")
+	quiz7.add_alternative("Preparar café", true) # Alternativa 0
+	quiz7.add_alternative("Corregir errores", false)
+	quiz7.add_alternative("Mejorar el rendimiento", false)
+	quiz7.disarray_alternatves()
+
+	all_quiz.append(quiz7)
+
+	# ---
+	
 	all_quiz.shuffle()
 	
 	$PracticeTemplate.add_quiz_array(all_quiz)
@@ -59,5 +93,4 @@ func _on_Back_pressed():
 
 func _on_Anim_animation_finished(anim_name):
 	if anim_name == "start":
-		print("next")
 		$PracticeTemplate.next_quiz()

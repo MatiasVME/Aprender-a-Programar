@@ -29,6 +29,7 @@ alignment = 0
 
 [node name="Shop" parent="VBox" index="0" instance=ExtResource( 3 )]
 editor/display_folded = false
+disabled = true
 
 [node name="Label" parent="VBox/Shop" index="0"]
 text = "Tienda"

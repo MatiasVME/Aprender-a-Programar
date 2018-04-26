@@ -83,6 +83,7 @@ func save_all(is_continue = false):
 		var cap = str("Cap", Main.current_chapter)
 		Main.data["Chapters"][cap]["TheoryCompleted"] = true
 		Main.current_stage = Main.PRACTICE
+		Persistence.save_data(Main.current_user)
 		
 		if is_continue:
 			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Practice.tscn")
@@ -93,6 +94,7 @@ func save_all(is_continue = false):
 		Main.data["Chapters"][cap]["TheoryCompleted"] = true
 		Main.current_chapter = 2
 		Main.current_stage = Main.THEORY
+		Persistence.save_data(Main.current_user)
 		
 		if is_continue:
 			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
@@ -102,12 +104,11 @@ func save_all(is_continue = false):
 		Main.data["Chapters"][cap]["PracticeCompleted"] = true
 		Main.current_chapter += 1
 		Main.current_stage = Main.THEORY
+		Persistence.save_data(Main.current_user)
 		
 		if is_continue:
 			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
 			get_tree().change_scene(scene_path)
-		
-	Persistence.save_data(Main.current_user)
 
 func _on_Back_pressed():
 	if Main.firebase != null:

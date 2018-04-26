@@ -7,6 +7,10 @@ func _ready():
 		Main.firebase.show_banner_ad(false)
 		
 	Main.reset_values()
+	
+	# Interstitial
+	if Main.firebase != null and Main.current_chapter != 1:
+		Main.firebase.show_interstitial_ad()
 
 func _on_RPGDialog_changed_transmitter_name():
 	$Top/Name.text = $RPGDialog.get_transmitter_name()
