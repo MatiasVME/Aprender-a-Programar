@@ -3,8 +3,9 @@ extends Node
 onready var menu = $Menu
 onready var win = $Win
 onready var theory = $Theory
+onready var lost = $Lost
 
-enum Music {MENU, WIN, THEORY}
+enum Music {MENU, WIN, THEORY, LOST}
 var current_music = null
 
 func select_music(p_music):
@@ -21,6 +22,8 @@ func select_music(p_music):
 			current_music = win
 		Music.THEORY :
 			current_music = theory
+		Music.LOST :
+			current_music = lost
 			
 func play_music():
 	if not Main.music_enable:

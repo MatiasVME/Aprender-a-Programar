@@ -132,49 +132,44 @@ func create_data_if_not_exist():
 			Cap2 = {
 				ScoreValueForDialogue = 3,
 				MoneyValueForDialogue = 3,
+				ScoreValueForAnswer = 5,
+				MoneyValueForAnswer = 5,
 				TheoryCompleted = false,
 				PracticeCompleted = false
 			},
 			Cap3 = {
 				ScoreValueForDialogue = 3,
 				MoneyValueForDialogue = 3,
+				ScoreValueForAnswer = 5,
+				MoneyValueForAnswer = 5,
 				TheoryCompleted = false,
 				PracticeCompleted = false
 			},
 			Cap4 = {
 				ScoreValueForDialogue = 3,
 				MoneyValueForDialogue = 3,
+				ScoreValueForAnswer = 5,
+				MoneyValueForAnswer = 5,
 				TheoryCompleted = false,
 				PracticeCompleted = false
 			},
 			Cap5 = {
 				ScoreValueForDialogue = 3,
 				MoneyValueForDialogue = 3,
+				ScoreValueForAnswer = 5,
+				MoneyValueForAnswer = 5,
 				TheoryCompleted = false,
 				PracticeCompleted = false
 			},
 			Cap6 = {
 				ScoreValueForDialogue = 3,
 				MoneyValueForDialogue = 3,
-				TheoryCompleted = false,
-				PracticeCompleted = false
-			},
-			Cap7 = {
-				ScoreValueForDialogue = 3,
-				MoneyValueForDialogue = 3,
-				TheoryCompleted = false,
-				PracticeCompleted = false
-			},
-			Cap8 = {
-				ScoreValueForDialogue = 3,
-				MoneyValueForDialogue = 3,
+				ScoreValueForAnswer = 5,
+				MoneyValueForAnswer = 5,
 				TheoryCompleted = false,
 				PracticeCompleted = false
 			}
 		} 
 		
 		Persistence.save_data(current_user)
-
-#func firebase_send_custom(event_key, event_value):
-#	if Main.firebase != null:
-#		Main.firebase.send_custom(event_key, event_value)
+		

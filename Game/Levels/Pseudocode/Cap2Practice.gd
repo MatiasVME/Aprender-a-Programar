@@ -39,17 +39,17 @@ func _ready():
 	all_quiz.append(quiz3)
 
 	# ---
-	
+
 	var quiz4 = quiz.duplicate()
-	
+
 	quiz4.set_question("Codificar es llevar la solución del problema a UML")
 	quiz4.add_alternative("V", false) 
 	quiz4.add_alternative("F", true) 
-	
+
 	all_quiz.append(quiz4)
-	
+
 	# ---
-	
+
 	var quiz5 = quiz.duplicate()
 
 	quiz5.set_question("¿Qué es depurar?")
@@ -61,17 +61,17 @@ func _ready():
 	all_quiz.append(quiz5)
 
 	# ---
-	
+
 	var quiz6 = quiz.duplicate()
-	
+
 	quiz6.set_question("Mantener es la modificación de un producto de software -antes- de la entrega")
 	quiz6.add_alternative("V", false) 
 	quiz6.add_alternative("F", true) 
-	
+
 	all_quiz.append(quiz6)
-	
+
 	# --- para corregir errores, mejorar el rendimiento, u otros atributos
-	
+
 	var quiz7 = quiz.duplicate()
 
 	quiz7.set_question("¿Cuál de estas actividades no implica mantener código fuente?")

@@ -1,14 +1,16 @@
 extends Node
 
 func _ready():
+	randomize()
+	
 	firebase_things()
 	
 	$Version.text = Main.version
 	
 	# El bbcode_text tiene que estar vacio
-	print("sd: ", $Notes/Text.bbcode_text)
 	if Main.firebase != null and $Notes/Text.bbcode_text == "" or $Notes/Text.bbcode_text == null:
-			$Notes/Text.bbcode_text = Main.firebase.getRemoteValue("welcome_message_1")
+		var rand_num = int(round(rand_range(1, 3)))
+		$Notes/Text.bbcode_text = Main.firebase.getRemoteValue(str("welcome_message_", rand_num))
 	else:
 		$Notes.hide()
 

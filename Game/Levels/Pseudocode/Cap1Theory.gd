@@ -36,15 +36,9 @@ func _on_RPGDialog_changed_text():
 			$AnyPet.talk()
 			
 	dialog_num += 1
-	
-var show_times = 0
 
 func _on_Anim_animation_finished(anim_name):
-	show_times += 1
-	
-	if anim_name == "show" and show_times == 2:
-		$TheoryTemplate/Anim.play("finish")
-	elif anim_name == "finish":
+	if anim_name == "finish":
 		# Tutorial
 		if Main.firebase != null:
 			Main.firebase.tutorial_complete()

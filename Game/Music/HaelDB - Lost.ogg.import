@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/HaelDB - Lost.ogg-6d8a574e24fdf39a50fec3d12fe3f26a.oggstr"
+
+[deps]
+
+source_file="res://Game/Music/HaelDB - Lost.ogg"
+dest_files=[ "res://.import/HaelDB - Lost.ogg-6d8a574e24fdf39a50fec3d12fe3f26a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

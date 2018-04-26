@@ -59,13 +59,18 @@ func save_all(is_continue = false):
 	Main.data["Score"] += Main.win_score
 	Main.data["Money"] += Main.win_money
 	
+	var cap = str("Cap", Main.current_chapter)
+	
 	if Main.current_stage == Main.THEORY:
-		var cap = str("Cap", Main.current_chapter)
-		
 		if Main.data["Chapters"][cap]["ScoreValueForDialogue"] > 1:
 			Main.data["Chapters"][cap]["ScoreValueForDialogue"] -= 1
 		if Main.data["Chapters"][cap]["MoneyValueForDialogue"] > 1:
 			Main.data["Chapters"][cap]["MoneyValueForDialogue"] -= 1
+	elif Main.current_stage == Main.PRACTICE:
+		if Main.data["Chapters"][cap]["ScoreValueForAnswer"] > 1:
+			Main.data["Chapters"][cap]["ScoreValueForAnswer"] -= 1
+		if Main.data["Chapters"][cap]["MoneyValueForAnswer"] > 1:
+			Main.data["Chapters"][cap]["MoneyValueForAnswer"] -= 1
 
 	if Main.firebase != null:
 		Main.firebase.earn_currency("Money", Main.win_money)
@@ -80,7 +85,6 @@ func save_all(is_continue = false):
 	$Timer.stop() # Para el tiempo para que no se actualice el texto
 	
 	if Main.current_stage == Main.THEORY and Main.current_chapter != 1:
-		var cap = str("Cap", Main.current_chapter)
 		Main.data["Chapters"][cap]["TheoryCompleted"] = true
 		Main.current_stage = Main.PRACTICE
 		Persistence.save_data(Main.current_user)
@@ -90,7 +94,6 @@ func save_all(is_continue = false):
 			get_tree().change_scene(scene_path)
 		
 	elif Main.current_chapter == 1:
-		var cap = str("Cap", Main.current_chapter)
 		Main.data["Chapters"][cap]["TheoryCompleted"] = true
 		Main.current_chapter = 2
 		Main.current_stage = Main.THEORY
@@ -100,7 +103,6 @@ func save_all(is_continue = false):
 			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
 			get_tree().change_scene(scene_path)
 	else: # Si es practica?
-		var cap = str("Cap", Main.current_chapter)
 		Main.data["Chapters"][cap]["PracticeCompleted"] = true
 		Main.current_chapter += 1
 		Main.current_stage = Main.THEORY
