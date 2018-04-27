@@ -94,7 +94,6 @@ columns = 2
 _sections_unfolded = [ "Mouse" ]
 
 [node name="Cap1" parent="Panel/Margin/Scroll/Grid" index="0" instance=ExtResource( 4 )]
-editor/display_folded = true
 margin_right = 400.0
 margin_bottom = 224.0
 disabled = true
@@ -109,7 +108,7 @@ margin_bottom = 224.0
 disabled = true
 
 [node name="Label" parent="Panel/Margin/Scroll/Grid/Cap2" index="0"]
-text = "¿Programar?"
+text = "Programar"
 
 [node name="Cap3" parent="Panel/Margin/Scroll/Grid" index="2" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -119,15 +118,17 @@ margin_bottom = 452.0
 disabled = true
 
 [node name="Label" parent="Panel/Margin/Scroll/Grid/Cap3" index="0"]
-text = "Variables"
+text = "Lenguajes"
 
 [node name="Cap4" parent="Panel/Margin/Scroll/Grid" index="3" instance=ExtResource( 4 )]
-editor/display_folded = true
 margin_left = 404.0
 margin_top = 228.0
 margin_right = 804.0
 margin_bottom = 452.0
 disabled = true
+
+[node name="Label" parent="Panel/Margin/Scroll/Grid/Cap4" index="0"]
+text = "Algoritmo"
 
 [node name="Cap5" parent="Panel/Margin/Scroll/Grid" index="4" instance=ExtResource( 4 )]
 editor/display_folded = true

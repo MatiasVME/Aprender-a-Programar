@@ -3,10 +3,11 @@ extends Node
 const RES_X = 1280
 const RES_Y = 720
 
-var version = "v0.3.0-dev"
-var music_enable = true
+var version = "v0.4.0-dev"
+var music_enable = false
+var sound_enable = false
 
-var debug = false
+var debug = true
 
 var pseudocode_max_level = 1
 
@@ -65,10 +66,10 @@ func firebase_config():
 		firebase = Engine.get_singleton("FireBase")
 		var file = File.new()
 		file.open("res://godot-firebase-config.json", file.READ)
-		var content = file.get_as_text()
+		var config = file.get_as_text()
 		file.close()
 		
-		firebase.init(content, get_instance_id())
+		firebase.init(config, get_instance_id())
 
 func firebase_auth_config():
 	if firebase != null:
@@ -128,7 +129,7 @@ func create_data_if_not_exist():
 		data["Money"] = 50
 		data["Score"] = 0
 		data["DataVersion"] = 1
-		data["PseudocodePastsLevels"] = 1 # debe estar en 1
+		data["PseudocodePastsLevels"] = 3 # debe estar en 1
 		data["Chapters"] = {
 			Cap1 = {
 				ScoreValueForDialogue = 3,

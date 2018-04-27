@@ -18,9 +18,6 @@ func _ready():
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(false)
 	
-	if Main.current_chapter == null:
-		Main.current_chapter = 2
-	
 	$ContinuePanel.connect("ok", self, "on_ok_panel")
 	$ContinuePanel.connect("exit", self, "on_exit_panel")
 
@@ -113,6 +110,39 @@ func finish():
 			get_tree().change_scene("res://Game/Levels/Win.tscn")
 		else:
 			get_tree().change_scene("res://Game/Levels/Lost.tscn")
+
+func get_all_quiz(all_quiz):
+	var quiz_object = load("res://addons/QuizNodes/Nodes/QuizMultipleChoice.gd").new()
+	quiz_object.name = "some"
+	
+	print("OK")
+	
+	var file = File.new()
+	file.open("res://Game/Content.json", file.READ)
+	var content = parse_json(file.get_as_text())
+	file.close()
+	
+#	print(Main.current_chapter)
+#	print(content["Pseudocode"]["Chapters"]["4"])
+	
+	for i in content["Pseudocode"]["Chapters"][str(Main.current_chapter)]["Practice"]:
+		var quiz = quiz_object.duplicate()
+		var dict = content["Pseudocode"]["Chapters"][str(Main.current_chapter)]["Practice"][i]
+
+		if dict["Type"] == "TrueOrFalse":
+			quiz.set_question(dict["Question"])
+			quiz.add_alternative(dict["Options"]["1"], int(dict["CorrectAnswer"]) == 1)
+			quiz.add_alternative(dict["Options"]["2"], int(dict["CorrectAnswer"]) == 2) 
+			
+			all_quiz.append(quiz)
+
+		elif dict["Type"] == "ThreeOptions":
+			quiz.set_question(dict["Question"])
+			quiz.add_alternative(dict["Options"]["1"], int(dict["CorrectAnswer"]) == 1)
+			quiz.add_alternative(dict["Options"]["2"], int(dict["CorrectAnswer"]) == 2)
+			quiz.add_alternative(dict["Options"]["3"], int(dict["CorrectAnswer"]) == 3)
+
+			all_quiz.append(quiz)
 
 func _on_TFOpt1_pressed():
 	pressed_alternative(0)

@@ -1,0 +1,52 @@
+{
+    "Pseudocode" : {
+        "Chapters" : {
+            "1" : {
+                "Theory" : {
+                },
+                "Practice" : {
+                }
+            },
+            "2" : {
+                "test" : "test2"
+            },
+            "3" : {
+                "test" : "test3"
+            },
+            "4" : {
+                "Theory" : {
+                },
+                "Practice" : {
+                    "1": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "test1",
+                        "Options": {
+                            "1" : "test1",
+                            "2" : "test1"
+                        },
+                        "CorrectAnswer" : 1
+                    },
+                    "2": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "test2",
+                        "Options": {
+                            "1" : "test2",
+                            "2" : "test2"
+                        },
+                        "CorrectAnswer" : 2
+                    },
+                    "3": {
+                        "Type" : "ThreeOptions",
+                        "Question" : "test3",
+                        "Options": {
+                            "1" : "test3",
+                            "2" : "test3",
+                            "3" : "test3"
+                        },
+                        "CorrectAnswer" : 3
+                    }
+                }
+            }
+        }
+    }
+}
