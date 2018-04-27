@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/Pets/AnyPet.gd" type="Script" id=1]
 [ext_resource path="res://Game/Pets/Stuar/Stuar - Placeholder.png" type="Texture" id=2]
 [ext_resource path="res://Game/Pets/Pipo/Pipo - Plaseholder.png" type="Texture" id=3]
+[ext_resource path="res://Game/Pets/Kripo/Kripo - Placeholder.png" type="Texture" id=4]
 
 [node name="AnyPet" type="Node2D" index="0"]
 script = ExtResource( 1 )
@@ -20,5 +21,12 @@ visible = false
 self_modulate = Color( 1, 1, 1, 0.133333 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="ref3" type="Sprite" parent="." index="2"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.133333 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 

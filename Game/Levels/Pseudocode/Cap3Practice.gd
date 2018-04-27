@@ -9,7 +9,7 @@ func _ready():
 	
 	var quiz1 = quiz.duplicate()
 	
-	quiz1.set_question("Programar es el proceso de codificar, depurar y mantener código fuente.")
+	quiz1.set_question("Los lenguajes de programación son lenguajes formales, que son ejecutados por los ordenadores.")
 	quiz1.add_alternative("V", true) # Alternativa 0
 	quiz1.add_alternative("F", false) # Alternativa 1 (es la correcta)
 	
@@ -19,10 +19,10 @@ func _ready():
 	
 	var quiz2 = quiz.duplicate()
 
-	quiz2.set_question("¿Cuál de las siguientes actividades no es considerada parte de la programación?")
-	quiz2.add_alternative("Codificar", false) # Alternativa 0
-	quiz2.add_alternative("Depurar", false) # Alternativa 1 (es la correcta)
-	quiz2.add_alternative("Motivar al equipo", true)
+	quiz2.set_question("¿De forma muy sencilla, cuando escribimos por medio de un lenguaje de programación estamos?")
+	quiz2.add_alternative("Hablandole al ordenador para que haga cosas", true) # Alternativa 0
+	quiz2.add_alternative("....", false) # Alternativa 1 (es la correcta)
+	quiz2.add_alternative("Motivar al equipo", false)
 	quiz2.disarray_alternatves()
 
 	all_quiz.append(quiz2)

@@ -57,21 +57,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=4]
 
-length = 0.5
+length = 1.0
 loop = false
 step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Curtain:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
-}
 
 [sub_resource type="Animation" id=5]
 
@@ -79,60 +67,48 @@ length = 1.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Curtain:color")
+tracks/0/path = NodePath("Back:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Back:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3, 0.5 ),
 "transitions": PoolRealArray( 1, 4, 1 ),
 "update": 0,
 "values": [ Vector2( -144, 576 ), Vector2( -144, 576 ), Vector2( 16, 576 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Questions/Result:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("Questions/Result:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0.3, 0.6, 1.2 ),
 "transitions": PoolRealArray( -4, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -1216, 240 ), Vector2( 32, 240 ), Vector2( 32, 240 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Questions/Result:rect_scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("Questions/Result:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0.3, 0.6, 1.2, 1.5 ),
 "transitions": PoolRealArray( -4, 1, -4, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Questions/Result:text")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath("Questions/Result:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -495,11 +471,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 32.0
+margin_left = -1215.89
 margin_top = 240.0
-margin_right = 1248.0
+margin_right = 0.106567
 margin_bottom = 449.0
-rect_scale = Vector2( 0, 0 )
+rect_scale = Vector2( 8.53614e-05, 8.53614e-05 )
 rect_pivot_offset = Vector2( 608, 104 )
 rect_clip_content = false
 mouse_filter = 2
@@ -519,11 +495,12 @@ max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="Back" parent="." index="2" instance=ExtResource( 6 )]
+margin_left = -144.0
+margin_right = -19.0
 
 [node name="ContinuePanel" parent="." index="3" instance=ExtResource( 7 )]
 position = Vector2( 1312, -32 )
 scale = Vector2( 1e-05, 1e-05 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Anim" type="AnimationPlayer" parent="." index="4"]
 root_node = NodePath("..")
@@ -540,7 +517,9 @@ anims/tf_hide = SubResource( 8 )
 anims/tf_show = SubResource( 9 )
 blend_times = [  ]
 
-[node name="Curtain" type="ColorRect" parent="." index="5"]
+[node name="ColorRect" type="ColorRect" parent="." index="5"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -553,11 +532,8 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 0, 0, 0, 0 )
-_sections_unfolded = [ "Mouse" ]
-__meta__ = {
-"_edit_lock_": true
-}
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Mouse", "Visibility" ]
 
 [connection signal="pressed" from="Questions/TF/TFOpt1" to="." method="_on_TFOpt1_pressed"]
 [connection signal="pressed" from="Questions/TF/TFOpt2" to="." method="_on_TFOpt2_pressed"]

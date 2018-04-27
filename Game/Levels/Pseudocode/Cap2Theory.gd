@@ -7,7 +7,7 @@ func _ready():
 		Main.current_chapter = 2
 	
 	var rpg_dialog = $TheoryTemplate/RPGDialog
-	 
+	
 	var pet_name = Main.data["PetSelected"]
 	
 	rpg_dialog.add_section(pet_name, "Hola estimado alumno. Que bueno verlo por acá.")
@@ -41,12 +41,6 @@ func _on_RPGDialog_changed_text():
 			
 	dialog_num += 1
 
-var show_times = 0
-
 func _on_Anim_animation_finished(anim_name):
-	show_times += 1
-	
-	if anim_name == "show" and show_times == 2:
-		$TheoryTemplate/Anim.play("finish")
-	elif anim_name == "finish":
+	if anim_name == "finish":
 		get_tree().change_scene("res://Game/Levels/Win.tscn")

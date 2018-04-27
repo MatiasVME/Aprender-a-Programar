@@ -6,7 +6,7 @@ const RES_Y = 720
 var version = "v0.3.0-dev"
 var music_enable = true
 
-var debug = true
+var debug = false
 
 var pseudocode_max_level = 1
 
@@ -30,7 +30,7 @@ enum CurrentStage {THEORY, PRACTICE}
 var current_stage = -1
 
 # Pets
-var pets_names = ["Pipo", "Stuar", "Posholo", "Kripo"]
+var pets_names = ["Pipo", "Stuar", "Posholo", "Cato", "Kripo"]
 
 var data
 
@@ -121,7 +121,7 @@ func create_data_if_not_exist():
 		data["Money"] = 50
 		data["Score"] = 0
 		data["DataVersion"] = 1
-		data["PseudocodePastsLevels"] = 1
+		data["PseudocodePastsLevels"] = 2 # debe estar en 1
 		data["Chapters"] = {
 			Cap1 = {
 				ScoreValueForDialogue = 3,
@@ -134,7 +134,7 @@ func create_data_if_not_exist():
 				MoneyValueForDialogue = 3,
 				ScoreValueForAnswer = 5,
 				MoneyValueForAnswer = 5,
-				TheoryCompleted = false,
+				TheoryCompleted = true, # debe estar en false
 				PracticeCompleted = false
 			},
 			Cap3 = {

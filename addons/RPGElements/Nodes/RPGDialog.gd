@@ -59,7 +59,7 @@ func _ready():
 	timer = Timer.new()
 	add_child(timer)
 	timer.connect("timeout", self, "_on_Timer_timeout")
-	timer.wait_time = 0.01
+	timer.wait_time = 0.005
 	
 	if self.debug:
 		connect("changed_transmitter_name", self, "_on_changed_transmitter_name")

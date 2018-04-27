@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Game/Levels/Pseudocode/Cap2Practice.gd" type="Script" id=1]
+[ext_resource path="res://Game/Levels/Pseudocode/Cap3Practice.gd" type="Script" id=1]
 [ext_resource path="res://Game/Levels/PracticeTemplate.tscn" type="PackedScene" id=2]
 
-[node name="Cap2Practice" type="Node" index="0"]
+[node name="Cap3Practice" type="Node" index="0"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="PracticeTemplate" parent="." index="0" instance=ExtResource( 2 )]

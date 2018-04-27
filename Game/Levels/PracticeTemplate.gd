@@ -16,15 +16,18 @@ func _ready():
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(false)
 	
-	var prob = int(round(rand_range(0, 5)))
+#	var prob = int(round(rand_range(0, 5)))
 	
 	# Interstitial
-	if prob <= 1 and Main.firebase != null:
-		Main.firebase.show_interstitial_ad()
+#	if prob <= 1 and Main.firebase != null:
+#		if firebase.is_interstitial_loaded():
+#			Main.firebase.show_interstitial_ad()
 		
 	if Main.current_chapter == null:
 		Main.current_chapter = 2
-		
+	
+	$ContinuePanel.connect("ok", self, "on_ok_panel")
+	$ContinuePanel.connect("exit", self, "on_exit_panel")
 
 func _on_Back_pressed():
 	if Main.firebase != null:
@@ -110,14 +113,13 @@ func finish():
 			if lifes > 0:
 				get_tree().change_scene("res://Game/Levels/Win.tscn")
 			else:
+				Main.firebase.show_interstitial_ad()
+				
 				get_tree().change_scene("res://Game/Levels/Lost.tscn")
 	else:
 		if lifes > 0:
 			get_tree().change_scene("res://Game/Levels/Win.tscn")
 		else:
-			if Main.firebase != null:
-				Main.firebase.show_interstitial_ad()
-			
 			get_tree().change_scene("res://Game/Levels/Lost.tscn")
 
 func _on_TFOpt1_pressed():
@@ -140,3 +142,9 @@ func _on_TAOpt2_pressed():
 
 func _on_TAOpt3_pressed():
 	pressed_alternative(2)
+	
+func on_ok_panel():
+	pass
+
+func on_exit():
+	pass
