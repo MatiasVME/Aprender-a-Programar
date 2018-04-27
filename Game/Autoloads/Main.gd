@@ -24,6 +24,9 @@ var reward_amount = 1
 var win_score = 0
 var win_money = 0
 
+# Practice
+var lifes = 1
+
 # Chapters
 var current_chapter
 enum CurrentStage {THEORY, PRACTICE}
@@ -54,6 +57,8 @@ func _ready():
 func reset_values():
 	win_score = 0
 	win_money = 0
+	reward_amount = 1
+	lifes = 1
 
 func firebase_config():
 	if OS.get_name() == "Android":
@@ -80,6 +85,8 @@ func _receive_message(tag, from, key, data):
 			# when rewared video play complete
 			debug("json data with [RewardType & RewardAmount]: ", data)
 			reward_amount = data["RewardAmount"]
+			lifes += reward_amount - 1
+			
 		elif key == "AdMob_Video":
 			# when rewarded video loaded
 			# data will be `loaded` or `load_failed and `loaded` or `not_loaded` with `firebase.request_rewarded_video_status()`
@@ -121,7 +128,7 @@ func create_data_if_not_exist():
 		data["Money"] = 50
 		data["Score"] = 0
 		data["DataVersion"] = 1
-		data["PseudocodePastsLevels"] = 2 # debe estar en 1
+		data["PseudocodePastsLevels"] = 1 # debe estar en 1
 		data["Chapters"] = {
 			Cap1 = {
 				ScoreValueForDialogue = 3,
@@ -134,7 +141,7 @@ func create_data_if_not_exist():
 				MoneyValueForDialogue = 3,
 				ScoreValueForAnswer = 5,
 				MoneyValueForAnswer = 5,
-				TheoryCompleted = true, # debe estar en false
+				TheoryCompleted = false, # debe estar en false
 				PracticeCompleted = false
 			},
 			Cap3 = {

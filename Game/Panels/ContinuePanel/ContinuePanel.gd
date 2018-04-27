@@ -14,7 +14,7 @@ func _on_OK_pressed():
 	emit_signal("ok")
 
 func on_exit():
-	pass
+	$Anim.play("hide")
 	
 func on_ok():
-	pass
+	$Anim.play("hide")

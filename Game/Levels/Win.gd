@@ -97,6 +97,10 @@ func save_all(is_continue = false):
 		Main.data["Chapters"][cap]["TheoryCompleted"] = true
 		Main.current_chapter = 2
 		Main.current_stage = Main.THEORY
+		
+		if Main.data["PseudocodePastsLevels"] == 1:
+			Main.data["PseudocodePastsLevels"] += 1
+		
 		Persistence.save_data(Main.current_user)
 		
 		if is_continue:
@@ -106,6 +110,10 @@ func save_all(is_continue = false):
 		Main.data["Chapters"][cap]["PracticeCompleted"] = true
 		Main.current_chapter += 1
 		Main.current_stage = Main.THEORY
+		
+		if Main.current_chapter > Main.data["PseudocodePastsLevels"]:
+			Main.data["PseudocodePastsLevels"] += 1
+		
 		Persistence.save_data(Main.current_user)
 		
 		if is_continue:

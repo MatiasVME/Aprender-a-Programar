@@ -9,7 +9,7 @@ func _ready():
 	
 	# El bbcode_text tiene que estar vacio
 	if Main.firebase != null and $Notes/Text.bbcode_text == "" or $Notes/Text.bbcode_text == null:
-		var rand_num = int(round(rand_range(1, 3)))
+		var rand_num = int(round(rand_range(1, 5)))
 		$Notes/Text.bbcode_text = Main.firebase.getRemoteValue(str("welcome_message_", rand_num))
 	else:
 		$Notes.hide()

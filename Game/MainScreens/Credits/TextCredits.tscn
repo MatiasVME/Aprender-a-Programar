@@ -4,13 +4,13 @@
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 20
+size = 26
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="TextCredits" type="RichTextLabel"]
+[node name="TextCredits" type="RichTextLabel" index="0"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

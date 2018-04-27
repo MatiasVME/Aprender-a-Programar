@@ -105,14 +105,15 @@ margin_bottom = 576.0
 bbcode_enabled = true
 bbcode_text = "[center]
 [color=red]Programación[/color]
-[color=blue]Matías Muñoz Espinoza[/color]
+[color=yellow]Matías Muñoz Espinoza[/color]
 
 [color=red]Música[/color]
-[color=blue]Cristian Muñoz Espinoza: Win Loop[/color]
-[color=blue]Levc: Menu Loop, Theory Loop[/color]
+[color=yellow]Cristian Muñoz Espinoza: Win Loop[/color]
+[color=yellow]Levc: Menu Loop, Theory Loop[/color]
+[color=yellow]HaelDB: Lost Loop[/color]
 
 [color=red]Arte[/color]
-[color=blue]Matías Muñoz Espinoza: Fondos, Mascotas, Botones[/color]
+[color=yellow]Matías Muñoz Espinoza: Fondos, Mascotas, Botones[/color]
 [/center]"
 text = "
 Programación
@@ -121,6 +122,7 @@ Matías Muñoz Espinoza
 Música
 Cristian Muñoz Espinoza: Win Loop
 Levc: Menu Loop, Theory Loop
+HaelDB: Lost Loop
 
 Arte
 Matías Muñoz Espinoza: Fondos, Mascotas, Botones

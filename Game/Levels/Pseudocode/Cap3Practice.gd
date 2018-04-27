@@ -16,72 +16,48 @@ func _ready():
 	all_quiz.append(quiz1)
 	
 	# ---
+	if not Main.debug:
+		var quiz2 = quiz.duplicate()
 	
-	var quiz2 = quiz.duplicate()
-
-	quiz2.set_question("¿De forma muy sencilla, cuando escribimos por medio de un lenguaje de programación estamos?")
-	quiz2.add_alternative("Hablandole al ordenador para que haga cosas", true) # Alternativa 0
-	quiz2.add_alternative("....", false) # Alternativa 1 (es la correcta)
-	quiz2.add_alternative("Motivar al equipo", false)
-	quiz2.disarray_alternatves()
-
-	all_quiz.append(quiz2)
+		quiz2.set_question("¿De forma muy sencilla, cuando escribimos por medio de un lenguaje de programación estamos?")
+		quiz2.add_alternative("Hablandole al ordenador para que haga cosas, formalmente.", true) # Alternativa 0
+		quiz2.add_alternative("Hablandole de manera informal.", false) # Alternativa 1 (es la correcta)
+		quiz2.add_alternative("Accediendo a internet", false)
+		quiz2.disarray_alternatves()
 	
-	# ---
+		all_quiz.append(quiz2)
+		
+		# ---
+		
+		var quiz3 = quiz.duplicate()
 	
-	var quiz3 = quiz.duplicate()
-
-	quiz3.set_question("¿Qué es codificar?")
-	quiz3.add_alternative("Llevar la solución del problema a código", true) # Alternativa 0
-	quiz3.add_alternative("Testear el producto de software", false)
-	quiz3.add_alternative("Escribir en el teclado", false)
-	quiz3.disarray_alternatves()
-
-	all_quiz.append(quiz3)
-
-	# ---
-
-	var quiz4 = quiz.duplicate()
-
-	quiz4.set_question("Codificar es llevar la solución del problema a UML")
-	quiz4.add_alternative("V", false) 
-	quiz4.add_alternative("F", true) 
-
-	all_quiz.append(quiz4)
-
-	# ---
-
-	var quiz5 = quiz.duplicate()
-
-	quiz5.set_question("¿Qué es depurar?")
-	quiz5.add_alternative("Identificar y corregir errores de programación", true) # Alternativa 0
-	quiz5.add_alternative("Hacer diagramas de el problema", false)
-	quiz5.add_alternative("Testear y hacer diagramas de el problema", false)
-	quiz5.disarray_alternatves()
-
-	all_quiz.append(quiz5)
-
-	# ---
-
-	var quiz6 = quiz.duplicate()
-
-	quiz6.set_question("Mantener es la modificación de un producto de software -antes- de la entrega")
-	quiz6.add_alternative("V", false) 
-	quiz6.add_alternative("F", true) 
-
-	all_quiz.append(quiz6)
-
-	# --- para corregir errores, mejorar el rendimiento, u otros atributos
-
-	var quiz7 = quiz.duplicate()
-
-	quiz7.set_question("¿Cuál de estas actividades no implica mantener código fuente?")
-	quiz7.add_alternative("Preparar café", true) # Alternativa 0
-	quiz7.add_alternative("Corregir errores", false)
-	quiz7.add_alternative("Mejorar el rendimiento", false)
-	quiz7.disarray_alternatves()
-
-	all_quiz.append(quiz7)
+		quiz3.set_question("Todos los lenguajes de programación son diferentes, no comparten ningúna similitud.")
+		quiz3.add_alternative("V", false)
+		quiz3.add_alternative("F", true)
+	
+		all_quiz.append(quiz3)
+	
+		# ---
+	
+		var quiz4 = quiz.duplicate()
+	
+		quiz4.set_question("La lógica de los lenguajes de programación es casi siempre la misma.")
+		quiz4.add_alternative("V", true) 
+		quiz4.add_alternative("F", false) 
+	
+		all_quiz.append(quiz4)
+	
+		# ---
+	
+		var quiz5 = quiz.duplicate()
+	
+		quiz5.set_question("¿Qué hacen los ordenadores con los programas?")
+		quiz5.add_alternative("Interpretan las intrucciones del programa", true) # Alternativa 0
+		quiz5.add_alternative("Lo traducen a Java", false)
+		quiz5.add_alternative("Leer la instrucciónes y las interpretan ambiguamente", false)
+		quiz5.disarray_alternatves()
+	
+		all_quiz.append(quiz5)
 
 	# ---
 	
