@@ -4,7 +4,9 @@ func _ready():
 	enable_buttons()
 
 func enable_buttons():
-	for i in range(1, Main.data["PseudocodePastsLevels"] + 1):
+	# Testear esto
+	for i in range(1, Main.data["PseudocodePastsLevels"]):
+#		if get_node(str("Panel/Margin/Scroll/Grid/Cap", i)) != null:
 		get_node(str("Panel/Margin/Scroll/Grid/Cap", i)).disabled = false
 
 func _on_Back_pressed():

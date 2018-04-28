@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/MainScreens/Connect.gd" type="Script" id=1]
 [ext_resource path="res://Game/Backgrounds/RandomBackground.tscn" type="PackedScene" id=2]
@@ -34,6 +34,49 @@ use_filter = false
 font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
+[sub_resource type="Animation" id=4]
+
+resource_name = "show"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Google:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Back:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+
 [node name="Connect" type="Node" index="0"]
 script = ExtResource( 1 )
 
@@ -48,7 +91,7 @@ margin_left = -50.0
 margin_top = -50.0
 margin_right = 50.0
 margin_bottom = 50.0
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 50, 50 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
@@ -61,9 +104,10 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="GoogleLogout" type="Button" parent="." index="2"]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -145,7 +189,7 @@ anchor_bottom = 0.0
 margin_top = 160.0
 margin_right = 1280.0
 margin_bottom = 207.0
-rect_pivot_offset = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 640, 25 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -161,7 +205,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Timer" type="Timer" parent="." index="6"]
 process_mode = 1
@@ -192,6 +236,17 @@ max_lines_visible = -1
 _sections_unfolded = [ "Material", "Pause", "Visibility", "custom_fonts" ]
 
 [node name="Back" parent="." index="8" instance=ExtResource( 9 )]
+rect_pivot_offset = Vector2( 62, 62 )
+_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
+
+[node name="Anim" type="AnimationPlayer" parent="." index="9"]
+root_node = NodePath("..")
+autoplay = "show"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/show = SubResource( 4 )
+blend_times = [  ]
 
 [connection signal="pressed" from="Google" to="." method="_on_Google_pressed"]
 [connection signal="pressed" from="GoogleLogout" to="." method="_on_GoogleLogout_pressed"]
