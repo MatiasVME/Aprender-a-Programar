@@ -19,32 +19,42 @@
                 "Practice" : {
                     "1": {
                         "Type" : "TrueOrFalse",
-                        "Question" : "test1",
+                        "Question" : "Un algoritmo debe de ser -infinito-.",
                         "Options": {
-                            "1" : "test1",
-                            "2" : "test1"
+                            "1" : "V",
+                            "2" : "F"
                         },
-                        "CorrectAnswer" : 1
+                        "CorrectAnswer" : 2
                     },
                     "2": {
                         "Type" : "TrueOrFalse",
-                        "Question" : "test2",
+                        "Question" : "Un algoritmo puede ser ambiguo.",
                         "Options": {
-                            "1" : "test2",
-                            "2" : "test2"
+                            "1" : "V",
+                            "2" : "F"
                         },
                         "CorrectAnswer" : 2
                     },
                     "3": {
                         "Type" : "ThreeOptions",
-                        "Question" : "test3",
+                        "Question" : "¿Cuál de las siguientes opciones no es una característica de un algoritmo?",
                         "Options": {
-                            "1" : "test3",
-                            "2" : "test3",
-                            "3" : "test3"
+                            "1" : "Ordenado",
+                            "2" : "Finito",
+                            "3" : "Ambiguo"
                         },
                         "CorrectAnswer" : 3
-                    }
+                    },
+                    "4": {
+                        "Type" : "ThreeOptions",
+                        "Question" : "¿De que forma no podemos expresar un algoritmo?",
+                        "Options": {
+                            "1" : "Pseudocodigo",
+                            "2" : "Diagrama de Flujo",
+                            "3" : "Dialogando ambiguamente"
+                        },
+                        "CorrectAnswer" : 3
+                    },
                 }
             }
         }

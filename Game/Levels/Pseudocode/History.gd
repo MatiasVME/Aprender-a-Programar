@@ -25,5 +25,8 @@ func _on_Cap2_pressed():
 
 func _on_Cap3_pressed():
 	Main.current_chapter = 3
-	
+	get_tree().change_scene("res://Game/Levels/TheoryAndPractice.tscn")
+
+func _on_Cap4_pressed():
+	Main.current_chapter = 4
 	get_tree().change_scene("res://Game/Levels/TheoryAndPractice.tscn")

@@ -118,7 +118,13 @@ func save_all(is_continue = false):
 		
 		if is_continue:
 			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
-			get_tree().change_scene(scene_path)
+			
+			var file = File.new()
+			
+			if file.file_exists(scene_path):
+				get_tree().change_scene(scene_path)
+			else:
+				get_tree().change_scene("res://Game/MainScreens/Credits.tscn")
 
 func _on_Back_pressed():
 	if Main.firebase != null:

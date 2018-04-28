@@ -130,26 +130,12 @@ disabled = true
 [node name="Label" parent="Panel/Margin/Scroll/Grid/Cap4" index="0"]
 text = "Algoritmo"
 
-[node name="Cap5" parent="Panel/Margin/Scroll/Grid" index="4" instance=ExtResource( 4 )]
-editor/display_folded = true
-margin_top = 456.0
-margin_right = 400.0
-margin_bottom = 680.0
-disabled = true
-
-[node name="Cap6" parent="Panel/Margin/Scroll/Grid" index="5" instance=ExtResource( 4 )]
-editor/display_folded = true
-margin_left = 404.0
-margin_top = 456.0
-margin_right = 804.0
-margin_bottom = 680.0
-disabled = true
-
 [node name="Back" parent="." index="2" instance=ExtResource( 5 )]
 
 [connection signal="pressed" from="Panel/Margin/Scroll/Grid/Cap1" to="." method="_on_Cap1_pressed"]
 [connection signal="pressed" from="Panel/Margin/Scroll/Grid/Cap2" to="." method="_on_Cap2_pressed"]
 [connection signal="pressed" from="Panel/Margin/Scroll/Grid/Cap3" to="." method="_on_Cap3_pressed"]
+[connection signal="pressed" from="Panel/Margin/Scroll/Grid/Cap4" to="." method="_on_Cap4_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 
 [editable path="Panel/Margin/Scroll/Grid/Cap1"]
@@ -159,7 +145,3 @@ disabled = true
 [editable path="Panel/Margin/Scroll/Grid/Cap3"]
 
 [editable path="Panel/Margin/Scroll/Grid/Cap4"]
-
-[editable path="Panel/Margin/Scroll/Grid/Cap5"]
-
-[editable path="Panel/Margin/Scroll/Grid/Cap6"]

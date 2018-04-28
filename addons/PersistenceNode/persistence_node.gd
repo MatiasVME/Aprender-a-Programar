@@ -117,9 +117,10 @@ func remove_profile(profile_name):
 	
 	match mode:
 		MODE_ENCRYPTED:
+			# Hay que arreglar esto
 			path = "user://" + folder_name + "/" + profile_name + ".save"
 		MODE_TEXT:
-			path = "user://" + folder_name + "/" + profile_name + ".txt"
+			path = str("user://", folder_name + "/", profile_name, ".txt")
 	
 	var err = dir.remove(path)
 	

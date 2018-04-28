@@ -3,11 +3,11 @@ extends Node
 const RES_X = 1280
 const RES_Y = 720
 
-var version = "v0.4.0-dev"
-var music_enable = false
-var sound_enable = false
+var version = "v0.5.0-dev"
+var music_enable = true
+var sound_enable = true
 
-var debug = true
+var debug = false
 
 var pseudocode_max_level = 1
 
@@ -33,8 +33,8 @@ var current_chapter
 enum CurrentStage {THEORY, PRACTICE}
 var current_stage = -1
 
-# Pets
-var pets_names = ["Pipo", "Stuar", "Posholo", "Cato", "Kripo"]
+# Pets (Kripo ya no)
+var pets_names = ["Pipo", "Stuar", "Posholo", "Cato"]
 
 var data
 
@@ -45,6 +45,7 @@ func _ready():
 	if debug:
 		Persistence.remove_all_data()
 	
+	Persistence.mode = Persistence.MODE_ENCRYPTED
 	data = Persistence.get_data(Main.current_user)
 	
 	debug(OS.get_user_data_dir())
@@ -129,7 +130,7 @@ func create_data_if_not_exist():
 		data["Money"] = 50
 		data["Score"] = 0
 		data["DataVersion"] = 1
-		data["PseudocodePastsLevels"] = 3 # debe estar en 1
+		data["PseudocodePastsLevels"] = 1 # debe estar en 1
 		data["Chapters"] = {
 			Cap1 = {
 				ScoreValueForDialogue = 3,
@@ -180,4 +181,6 @@ func create_data_if_not_exist():
 		} 
 		
 		Persistence.save_data(current_user)
-		
+
+func reset():
+	request_ready()

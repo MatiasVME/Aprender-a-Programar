@@ -111,19 +111,14 @@ func finish():
 		else:
 			get_tree().change_scene("res://Game/Levels/Lost.tscn")
 
-func get_all_quiz(all_quiz):
+func configure_practice(all_quiz):
 	var quiz_object = load("res://addons/QuizNodes/Nodes/QuizMultipleChoice.gd").new()
 	quiz_object.name = "some"
-	
-	print("OK")
 	
 	var file = File.new()
 	file.open("res://Game/Content.json", file.READ)
 	var content = parse_json(file.get_as_text())
 	file.close()
-	
-#	print(Main.current_chapter)
-#	print(content["Pseudocode"]["Chapters"]["4"])
 	
 	for i in content["Pseudocode"]["Chapters"][str(Main.current_chapter)]["Practice"]:
 		var quiz = quiz_object.duplicate()

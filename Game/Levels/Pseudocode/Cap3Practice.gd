@@ -20,7 +20,7 @@ func _ready():
 		var quiz2 = quiz.duplicate()
 	
 		quiz2.set_question("¿De forma muy sencilla, cuando escribimos por medio de un lenguaje de programación estamos?")
-		quiz2.add_alternative("Hablandole al ordenador para que haga cosas, formalmente.", true) # Alternativa 0
+		quiz2.add_alternative("Hablandole al ordenador para que haga cosas.", true) # Alternativa 0
 		quiz2.add_alternative("Hablandole de manera informal.", false) # Alternativa 1 (es la correcta)
 		quiz2.add_alternative("Accediendo a internet", false)
 		quiz2.disarray_alternatves()

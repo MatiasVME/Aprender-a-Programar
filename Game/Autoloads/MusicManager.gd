@@ -33,8 +33,5 @@ func play_music():
 		current_music.play()
 		
 func stop_music():
-	if not Main.music_enable:
-		return
-	
 	if current_music != null:
 		current_music.stop()

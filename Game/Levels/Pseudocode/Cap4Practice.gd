@@ -8,16 +8,8 @@ func _ready():
 	
 	if Main.current_chapter == null:
 		Main.current_chapter = 4
-#	quiz.name = "some" # Quiz necesita un nombre sino da error...
-	
-#	var quiz1 = quiz.duplicate()
-#
-#	quiz1.set_question("Los lenguajes de programación son lenguajes formales, que son ejecutados por los ordenadores.")
-#	quiz1.add_alternative("V", true) # Alternativa 0
-#	quiz1.add_alternative("F", false) # Alternativa 1 (es la correcta)
-#
-#	all_quiz.append(quiz1)
-	$PracticeTemplate.get_all_quiz(all_quiz)
+
+	$PracticeTemplate.configure_practice(all_quiz)
 
 	all_quiz.shuffle()
 	
