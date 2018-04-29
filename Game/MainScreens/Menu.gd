@@ -8,9 +8,13 @@ func _ready():
 	$Version.text = Main.version
 	
 	# El bbcode_text tiene que estar vacio
-	if Main.firebase != null and $Notes/Text.bbcode_text == "" or $Notes/Text.bbcode_text == null:
+	if Main.firebase != null:
 		var rand_num = int(round(rand_range(1, 5)))
 		$Notes/Text.bbcode_text = Main.firebase.getRemoteValue(str("welcome_message_", rand_num))
+		
+		# A veces puede que siga estando vacio el texto después de pedirlo
+		if $Notes/Text.bbcode_text == "":
+			$Notes.hide()
 	else:
 		$Notes.hide()
 

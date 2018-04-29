@@ -7,9 +7,6 @@ func _on_Google_pressed():
 	if Main.firebase != null:
 		if not Main.firebase.is_google_connected():
 			Main.firebase.google_sign_in()
-
-			var new_texture = load("res://Game/Buttons/Social/Google-ok.png")
-			$Google.texture_normal = new_texture
 	
 func _on_SMS_pressed(): # TODO
 	if Main.firebase != null:

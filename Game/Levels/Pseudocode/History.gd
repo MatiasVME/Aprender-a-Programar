@@ -5,9 +5,9 @@ func _ready():
 
 func enable_buttons():
 	# Testear esto
-	for i in range(1, Main.data["PseudocodePastsLevels"]):
-#		if get_node(str("Panel/Margin/Scroll/Grid/Cap", i)) != null:
-		get_node(str("Panel/Margin/Scroll/Grid/Cap", i)).disabled = false
+	for i in range(1, Main.data["PseudocodePastsLevels"] + 1):
+		if get_node(str("Panel/Margin/Scroll/Grid/Cap", i)) != null:
+			get_node(str("Panel/Margin/Scroll/Grid/Cap", i)).disabled = false
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://Game/MainScreens/Modes.tscn")
@@ -31,4 +31,8 @@ func _on_Cap3_pressed():
 
 func _on_Cap4_pressed():
 	Main.current_chapter = 4
+	get_tree().change_scene("res://Game/Levels/TheoryAndPractice.tscn")
+
+func _on_Cap5_pressed():
+	Main.current_chapter = 5
 	get_tree().change_scene("res://Game/Levels/TheoryAndPractice.tscn")

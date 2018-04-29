@@ -100,6 +100,8 @@ func finish():
 			$Anim.play("continue_show")
 		elif Main.current_chapter != 1:
 			if Main.lifes > 0:
+				Main.firebase.show_interstitial_ad()
+				
 				get_tree().change_scene("res://Game/Levels/Win.tscn")
 			else:
 				Main.firebase.show_interstitial_ad()

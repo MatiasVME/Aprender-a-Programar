@@ -100,7 +100,9 @@ max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="TextCredits" parent="." index="2" instance=ExtResource( 4 )]
+margin_left = 16.0
 margin_top = 176.0
+margin_right = 1264.0
 margin_bottom = 576.0
 bbcode_enabled = true
 bbcode_text = "[center]
@@ -114,6 +116,14 @@ bbcode_text = "[center]
 
 [color=red]Arte[/color]
 [color=yellow]Matías Muñoz Espinoza: Fondos, Mascotas, Botones[/color]
+
+[color=red]Contact[/color]
+[color=yellow]Matias Muñoz Espinoza:[/color]
+[color=green][url=https://furygames.itch.io][Itch.io][/url] [url=https://www.facebook.com/FuryGamesOrg/][Fanpage FuryGames][/url] [url=https://www.youtube.com/user/ElementalCodeNet][Youtube][/url][/color]
+[color=yellow]Levc:[/color]
+[color=green][url=https://soundcloud.com/levc-studio/][SoundCloud][/url][/color]
+[color=yellow]Cristian Muñoz Espinoza:[/color]
+[color=green][url=https://www.youtube.com/channel/UC3ot9mOdBg0TmE1Lz5ppeSA][Youtube][/url][/color]
 [/center]"
 text = "
 Programación
@@ -126,6 +136,14 @@ HaelDB: Lost Loop
 
 Arte
 Matías Muñoz Espinoza: Fondos, Mascotas, Botones
+
+Contact
+Matias Muñoz Espinoza:
+[Itch.io] [Fanpage FuryGames] [Youtube]
+Levc:
+[SoundCloud]
+Cristian Muñoz Espinoza:
+[Youtube]
 "
 _sections_unfolded = [ "BBCode", "custom_colors", "custom_constants", "custom_fonts" ]
 

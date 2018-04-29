@@ -54,7 +54,74 @@
                             "3" : "Dialogando ambiguamente"
                         },
                         "CorrectAnswer" : 3
+                    }
+                }
+            },
+            "5" : {
+                "Theory" : {
+                    "1" : "Hola, estimado, ¿Cómo ha estado? Yo muy bien. ",
+                    "2" : "Hoy amigo, veremos un tema que se ve todo el tiempo en programación y es acerca de las variables.",
+                    "3" : "Variables, ¿Qué son?, se puede decir muchas cosas acerca de las variables, pero una definición general sería la siguiente.",
+                    "4" : "Las variables son espacios reservados en la memoria que, como su nombre indica, pueden cambiar de contenido a lo largo de la ejecución de un programa",
+                    "5" : "También debemos de nombrar las características principales de las variables.",
+                    "6" : "Pueden cambiar a lo largo de la ejecución del programa.",
+                    "7" : "Tienen un identificador o nombre. Que es el nombre el cuál le damos para luego hacer referencia a esa variable en el código.",
+                    "8" : "Tienen un tipo de dato. Es el espacio de memoria, pero con restricciones.",
+                    "9" : "Existen varios tipos de datos y estos existen ya que el espacio que almacenan los ditintos tipos de valores de las variables no son siempre los mismos.",
+                    "10" : "Imaginemos que queremos almacenar un nombre tal como 'Juancio'. Bueno 'Juancio' no va a requerir la misma cantidad de memoria que una edad, por ejemplo.",
+                    "11" : "Nosotros utilizaremos los siguientes tipos de variables para nuestro lenguaje de pseudocódigo: int, decimal, bool y string.",
+                    "12" : "Normalmente en los lenguajes de programación existen muchos más tipos de datos, pero por temas de simplificación solo utilizaremos esos.",
+                    "13" : "A futuro le explicaré que tipos de valores almacenan los ditintos tipos de datos que hemos dicho.",
+                    "14" : "Eso es todo estimado alumno, nos veremos en la próxima clase, después de la práctica por su puesto."
+                },
+                "Practice" : {
+                    "1": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "Un variable es un espacio reservado en la memoria que no puede cambiar a lo largo de la ejecución de un programa.",
+                        "Options": {
+                            "1" : "V",
+                            "2" : "F"
+                        },
+                        "CorrectAnswer" : 2
                     },
+                    "2": {
+                        "Type" : "ThreeOptions",
+                        "Question" : "¿Cuál de las siguientes alternativas no es considerada una característica de una variable?",
+                        "Options": {
+                            "1" : "Puede cambiar a lo largo de la ejecución del programa",
+                            "2" : "Tienen un nombre o identificador",
+                            "3" : "No tienen un tipo de dato"
+                        },
+                        "CorrectAnswer" : 3
+                    },
+                    "3": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "Un variable tiene un identificador o nombre",
+                        "Options": {
+                            "1" : "V",
+                            "2" : "F"
+                        },
+                        "CorrectAnswer" : 1
+                    },
+                    "4": {
+                        "Type" : "ThreeOptions",
+                        "Question" : "¿Los tipos de datos existen, por qué?",
+                        "Options": {
+                            "1" : "Los tipos tienen distintos tamaños",
+                            "2" : "La memoria principal es volátil",
+                            "3" : "Los tipos tienen diferente nombre"
+                        },
+                        "CorrectAnswer" : 1
+                    },
+                    "5": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "Un tipo de dato hace que una variable no tenga restricciones",
+                        "Options": {
+                            "1" : "V",
+                            "2" : "F"
+                        },
+                        "CorrectAnswer" : 2
+                    }
                 }
             }
         }

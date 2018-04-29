@@ -16,6 +16,18 @@ func _ready():
 	Main.win_money += Main.data["Chapters"][cap]["MoneyValueForDialogue"]
 	Main.win_score += Main.data["Chapters"][cap]["ScoreValueForDialogue"]
 
+func start_dialog(pet_name, rpg_dialog):
+	var file = File.new()
+	file.open("res://Game/Content.json", file.READ)
+	var content = parse_json(file.get_as_text())
+	file.close()
+	
+	for i in content["Pseudocode"]["Chapters"][str(Main.current_chapter)]["Theory"]:
+		var current_dialog = content["Pseudocode"]["Chapters"][str(Main.current_chapter)]["Theory"][i]
+		rpg_dialog.add_section(pet_name, current_dialog)
+	
+	rpg_dialog.start_dialog()
+
 func _on_RPGDialog_changed_transmitter_name():
 	$Top/Name.text = $RPGDialog.get_transmitter_name()
 
@@ -29,6 +41,9 @@ func _on_RPGDialog_end_dialog():
 	$Anim.play("finish")
 
 func _on_Back_pressed():
+	MusicManager.select_music(MusicManager.MENU)
+	MusicManager.play_music()
+	
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
 
 func _on_Next_pressed():

@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 
 [node name="Menu" type="AudioStreamPlayer" parent="." index="0"]
 stream = ExtResource( 2 )
-volume_db = -10.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -19,7 +19,7 @@ bus = "Master"
 
 [node name="Win" type="AudioStreamPlayer" parent="." index="1"]
 stream = ExtResource( 3 )
-volume_db = -10.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -27,7 +27,7 @@ bus = "Master"
 
 [node name="Theory" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource( 4 )
-volume_db = -10.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -35,7 +35,7 @@ bus = "Master"
 
 [node name="Lost" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource( 5 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

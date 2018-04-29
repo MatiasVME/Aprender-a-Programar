@@ -14,9 +14,16 @@ func _on_Back_pressed():
 
 func _on_Theory_pressed():
 	Main.current_stage = Main.THEORY
+
+	MusicManager.select_music(MusicManager.THEORY)
+	MusicManager.play_music()
 	
 	get_tree().change_scene(str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn"))
 
 func _on_Practice_pressed():
 	Main.current_stage = Main.PRACTICE
+
+	MusicManager.select_music(MusicManager.THEORY)
+	MusicManager.play_music()
+
 	get_tree().change_scene(str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Practice.tscn"))

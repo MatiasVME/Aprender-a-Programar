@@ -1,10 +1,18 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Game/Levels/Pseudocode/Cap4Theory.gd" type="Script" id=1]
+[ext_resource path="res://Game/Levels/Pseudocode/Cap5Theory.gd" type="Script" id=1]
 [ext_resource path="res://Game/Pets/AnyPet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Game/Levels/Pseudocode/Images/DiagramaDeFlujo.jpg" type="Texture" id=3]
-[ext_resource path="res://Game/Levels/Pseudocode/AnimElements/Pseudocode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Levels/Pseudocode/AnimElements/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Fonts/Nokia/nokia.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Game/Levels/TheoryTemplate.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=15]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="Animation" id=1]
 
@@ -40,32 +48,20 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=2]
 
 resource_name = "anim10"
-length = 0.5
+length = 1.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("DiagramaDeFlujo:position")
+tracks/0/path = NodePath("AnyPet:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 4, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 944, 297 ), Vector2( 1584, 704 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Pseudocode:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
-"transitions": PoolRealArray( 4, 1 ),
-"update": 0,
-"values": [ Vector2( 1312, 112 ), Vector2( 752, 112 ) ]
+"values": [ Vector2( 224, 352 ), Vector2( 646.824, 373.141 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -74,30 +70,6 @@ resource_name = "anim11"
 length = 1.0
 loop = false
 step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Pseudocode:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( -4, 1 ),
-"update": 0,
-"values": [ Vector2( 752, 112 ), Vector2( 1328, 112 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnyPet:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( -4, 1 ),
-"update": 0,
-"values": [ Vector2( 224, 352 ), Vector2( 640, 352.004 ) ]
-}
 
 [sub_resource type="Animation" id=4]
 
@@ -158,26 +130,26 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 640, 352 ), Vector2( 224, 352 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 1312, 96 ), Vector2( 608, 96 ) ]
+}
 
 [sub_resource type="Animation" id=12]
 
 length = 1.0
 loop = false
 step = 0.1
-
-[sub_resource type="Animation" id=13]
-
-length = 1.0
-loop = false
-step = 0.1
-
-[sub_resource type="Animation" id=14]
-
-length = 0.5
-loop = false
-step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("DiagramaDeFlujo:position")
+tracks/0/path = NodePath("2:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -186,52 +158,115 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( -4, 1 ),
 "update": 0,
-"values": [ Vector2( 1552, 368 ), Vector2( 944, 297 ) ]
+"values": [ Vector2( 1293, 219 ), Vector2( 608, 219 ) ]
 }
 
-[node name="Cap4Theory" type="Node" index="0"]
+[sub_resource type="Animation" id=13]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("3:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 1308, 342 ), Vector2( 608, 342 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 608, 96 ), Vector2( 1302, 96 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 608, 219 ), Vector2( 1296, 219 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 608, 342 ), Vector2( 1300, 342 ) ]
+}
+
+[node name="Cap5Theory" type="Node" index="0"]
 script = ExtResource( 1 )
 
 [node name="AnyPet" parent="." index="0" instance=ExtResource( 2 )]
 editor/display_folded = true
-position = Vector2( 640, 352.004 )
+position = Vector2( 646.824, 373.141 )
 scale = Vector2( 1e-05, 1e-05 )
 _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
 
-[node name="DiagramaDeFlujo" type="Sprite" parent="." index="1"]
-position = Vector2( 1584, 704 )
-scale = Vector2( 0.95, 0.95 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+[node name="1" parent="." index="1" instance=ExtResource( 3 )]
+margin_left = 1302.0
+margin_top = 96.0
+margin_right = 2060.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( 379, 48 )
+custom_fonts/font = SubResource( 15 )
+text = "1) Pueden cambiar de valor"
+align = 0
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Pseudocode" parent="." index="2" instance=ExtResource( 4 )]
+[node name="2" parent="." index="2" instance=ExtResource( 3 )]
+margin_left = 1296.0
+margin_top = 219.0
+margin_right = 2054.0
+margin_bottom = 347.0
+rect_pivot_offset = Vector2( 379, 48 )
+custom_fonts/font = SubResource( 15 )
+text = "2) Tienen un identificador"
+align = 0
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="3" parent="." index="3" instance=ExtResource( 3 )]
+margin_left = 1300.0
+margin_top = 342.0
+margin_right = 2058.0
+margin_bottom = 470.0
+rect_pivot_offset = Vector2( 379, 48 )
+custom_fonts/font = SubResource( 15 )
+text = "3) Tienen un tipo"
+align = 0
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="TheoryTemplate" parent="." index="4" instance=ExtResource( 5 )]
 editor/display_folded = true
-position = Vector2( 1328, 112 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Background" parent="Pseudocode" index="0"]
-margin_bottom = 288.0
-
-[node name="Text" parent="Pseudocode" index="1"]
-bbcode_text = "int edad = 30
-string nombre
-
-printLine(\"Mi edad es {edad}\")
-printLine(\"y tu nombre es: \")
-nombre = getString()
-printLine(\"Tu nombre es {nombre}\")"
-text = "int edad = 30
-string nombre
-
-printLine(\"Mi edad es {edad}\")
-printLine(\"y tu nombre es: \")
-nombre = getString()
-printLine(\"Tu nombre es {nombre}\")"
-
-[node name="TheoryTemplate" parent="." index="3" instance=ExtResource( 5 )]
-editor/display_folded = true
-
-[node name="Anim" type="AnimationPlayer" parent="." index="4"]
+[node name="Anim" type="AnimationPlayer" parent="." index="5"]
 root_node = NodePath("..")
 autoplay = "anim1"
 playback_process_mode = 1
@@ -253,12 +288,10 @@ anims/anim8 = SubResource( 13 )
 anims/anim9 = SubResource( 14 )
 blend_times = [  ]
 
-[connection signal="changed_text" from="TheoryTemplate/RPGDialog" to="." method="_on_RPGDialog_changed_text"]
 [connection signal="changed_text" from="TheoryTemplate/RPGDialog" to="TheoryTemplate" method="_on_RPGDialog_changed_text"]
+[connection signal="changed_text" from="TheoryTemplate/RPGDialog" to="." method="_on_RPGDialog_changed_text"]
 [connection signal="animation_finished" from="TheoryTemplate/Anim" to="." method="_on_Anim_animation_finished"]
 
 [editable path="AnyPet"]
-
-[editable path="Pseudocode"]
 
 [editable path="TheoryTemplate"]
