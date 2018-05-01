@@ -4,9 +4,15 @@ func _ready():
 	pass
 
 func _on_Back_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
 
 func _on_Music_toggled(button_pressed):
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	if button_pressed:
 		Main.music_enable = false
 		MusicManager.stop_music()
@@ -15,8 +21,14 @@ func _on_Music_toggled(button_pressed):
 		MusicManager.play_music()
 
 func _on_ConfirmationDialog_confirmed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	Persistence.remove_all_data()
 	get_tree().quit()
 
 func _on_DeleteData_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	$ConfirmationDeleteData.show()

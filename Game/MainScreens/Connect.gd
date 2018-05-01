@@ -4,6 +4,9 @@ func _ready():
 	firebase_things()
 
 func _on_Google_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	if Main.firebase != null:
 		if not Main.firebase.is_google_connected():
 			Main.firebase.google_sign_in()
@@ -14,6 +17,9 @@ func _on_SMS_pressed(): # TODO
 		Main.firebase.invite("Hola, descubrí esta aplicación muy buena para aprender a programar de forma muy fácil y entretenida.", "https://example.com/beed/link")
 
 func _on_Back_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
 
 func _on_Timer_timeout():
@@ -51,5 +57,8 @@ func firebase_things():
 		hide_all_buttons()
 
 func _on_GoogleLogout_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	Main.current_user = null
 	Main.firebase.google_sign_out()

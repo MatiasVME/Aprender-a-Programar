@@ -69,7 +69,7 @@
                     "8" : "Tienen un tipo de dato. Es el espacio de memoria, pero con restricciones.",
                     "9" : "Existen varios tipos de datos y estos existen ya que el espacio que almacenan los ditintos tipos de valores de las variables no son siempre los mismos.",
                     "10" : "Imaginemos que queremos almacenar un nombre tal como 'Juancio'. Bueno 'Juancio' no va a requerir la misma cantidad de memoria que una edad, por ejemplo.",
-                    "11" : "Nosotros utilizaremos los siguientes tipos de variables para nuestro lenguaje de pseudocódigo: int, decimal, bool y string.",
+                    "11" : "Nosotros utilizaremos los siguientes tipos de variables para nuestro lenguaje de pseudocódigo: int, decimal, bool, string y var.",
                     "12" : "Normalmente en los lenguajes de programación existen muchos más tipos de datos, pero por temas de simplificación solo utilizaremos esos.",
                     "13" : "A futuro le explicaré que tipos de valores almacenan los ditintos tipos de datos que hemos dicho.",
                     "14" : "Eso es todo estimado alumno, nos veremos en la próxima clase, después de la práctica por su puesto."
@@ -122,6 +122,93 @@
                         },
                         "CorrectAnswer" : 2
                     }
+                }
+            },
+            "6" : {
+                "Theory" : {
+                    "1" : "Hola, estimado alumno, hoy es un gran día para aprender algo de programación ¿No cree?.",
+                    "2" : "En la clase pasada vimos acerca de las variables, pero no mencionamos a su archienemigo... Las constantes.",
+                    "3" : "Bueno en realidad no son enemigos pero, solo quería ponerle más emoción. Recordemos que las variables son valores que pueden cambiar a lo largo de la ejecución de un programa.",
+                    "4" : "Pero las constantes, al contrario, como su nombre lo indica, su valor no cambia. En realidad se declaran de una forma similar a las variables.",
+                    "5" : "A la derecha vemos como se declara una variable normal en la primera línea.",
+                    "6" : "Y abajo vemos como se declara una constante en nuestro pseudocódigo.",
+                    "7" : "Hemos dicho declarar... No, no, no es una mala palabra solo significa que, estamos definiendo una nueva variable o también podría ser una constante.",
+                    "8" : "En la vida real también existen constantes como por ejemlo el número PI que sería el decimal 3.14, bueno el numero PI es más largo en realidad.",
+                    "9" : "También en el pequeño pseudocódigo de la derecha vemos un signo = que en muchos lenguajes de programación significa 'asignación'. Diras ¿¡Qué!? ese es el signo de equivalencia a mi no me engañas.",
+                    "10" : "No lo engaño amigo, es el signo de asignación, ya que hablamos de programación. Y no todo es parecido a las matemáticas.",
+                    "11" : "Entonces si decimos que 'int edad = 18' significa que le estamos asignando el valor 18 a la variable con el identificador 'edad', y tambien decimos que es de tipo entero o int. ¿No es tan difícil verdad?",
+                    "12" : "En este capítulo no hablaremos de todos los tipos de datos. Pero int es un tipo de dato entero, osea que no tiene una parte decimal.",
+                    "13" : "Y en cambio en la segunda línea 'const decimal PI = 3.14' significa que declaramos una constante cuyo tipo es decimal y que su identificador es 'PI' y le asignamos el valor 3.14.",
+                    "14" : "Pero recordemos, en el caso de las constantes, esto solo se lo podemos asignar una sola vez. A lo largo de la ejecución del programa este valor no cambia.",
+                    "15" : "Bueno amigo, espero que este capítulo haya sido de su agrado, nos vemos en un próximo capítulo.",
+                },
+                "Practice" : {
+                    "1": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "Las constantes cambian a lo largo de la ejecución del programa.",
+                        "Options": {
+                            "1" : "V",
+                            "2" : "F"
+                        },
+                        "CorrectAnswer" : 2
+                    },
+                    "2": {
+                        "Type" : "ThreeOptions",
+                        "Question" : "¿Cuál de las siguientes alternativas es una característica de las constantes?",
+                        "Options": {
+                            "1" : "Puede cambiar a lo largo de la ejecución del programa",
+                            "2" : "Tienen que ser de tipo int (entero)",
+                            "3" : "Tiene un identificador"
+                        },
+                        "CorrectAnswer" : 3
+                    },
+                    "3": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "Las constantes se declaran de una forma similar a las variables",
+                        "Options": {
+                            "1" : "V",
+                            "2" : "F"
+                        },
+                        "CorrectAnswer" : 1
+                    },
+                    "4": {
+                        "Type" : "ThreeOptions",
+                        "Question" : "¿Qué es declarar?",
+                        "Options": {
+                            "1" : "Definir una variable o constante",
+                            "2" : "Eliminar una variable o constante",
+                            "3" : "Crear una variable de tipo int"
+                        },
+                        "CorrectAnswer" : 1
+                    },
+                    "5": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "El operador de = es el operador de equivalencia",
+                        "Options": {
+                            "1" : "V",
+                            "2" : "F"
+                        },
+                        "CorrectAnswer" : 2
+                    },
+                    "6": {
+                        "Type" : "ThreeOptions",
+                        "Question" : "¿Cúal es la forma correcta de declarar una constante según nuestro pseudocodigo?",
+                        "Options": {
+                            "1" : "const decimal PI = 3.14",
+                            "2" : "decimal const 3.14 = PI",
+                            "3" : "PI = 3.14 (decimal const)"
+                        },
+                        "CorrectAnswer" : 1
+                    },
+                    "5": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "int es un tipo de dato decimal",
+                        "Options": {
+                            "1" : "V",
+                            "2" : "F"
+                        },
+                        "CorrectAnswer" : 2
+                    },
                 }
             }
         }

@@ -22,6 +22,9 @@ func _ready():
 	$ContinuePanel.connect("exit", self, "on_exit_panel")
 
 func _on_Back_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(true)
 	
@@ -31,8 +34,8 @@ func next_quiz():
 	if quiz_array == null:
 		Main.debug("quiz_array es null")
 		return
-	
-	if current_quiz_num != quiz_array.size() and Main.lifes > 0:
+		
+	if not current_quiz_num >= quiz_array.size() and Main.lifes > 0:
 		current_quiz = quiz_array[current_quiz_num]
 		
 		match quiz_array[current_quiz_num].type:
@@ -70,6 +73,9 @@ func pressed_alternative(alternative):
 		current_quiz.select_answer(alternative)
 		
 		if current_quiz.get_result():
+			SoundManager.select_sound(SoundManager.CORRECT)
+			SoundManager.play_sound()
+	
 			$Questions/Result.text = "¡¡Muy Bien!!"
 			
 			var cap = str("Cap", Main.current_chapter)
@@ -82,6 +88,9 @@ func pressed_alternative(alternative):
 			elif current_quiz.type == current_quiz.THREE_OPTIONS:
 				$Anim.play("ta_hide")
 		else:
+			SoundManager.select_sound(SoundManager.INCORRECT)
+			SoundManager.play_sound()
+	
 			$Questions/Result.text = "¡¡Que Mal!!"
 			
 			Main.lifes -= 1
@@ -138,7 +147,8 @@ func configure_practice(all_quiz):
 			quiz.add_alternative(dict["Options"]["1"], int(dict["CorrectAnswer"]) == 1)
 			quiz.add_alternative(dict["Options"]["2"], int(dict["CorrectAnswer"]) == 2)
 			quiz.add_alternative(dict["Options"]["3"], int(dict["CorrectAnswer"]) == 3)
-
+			quiz.disarray_alternatves()
+			
 			all_quiz.append(quiz)
 
 func _on_TFOpt1_pressed():
@@ -174,9 +184,6 @@ func on_exit_panel():
 
 func _on_WaitForLifes_timeout():
 	times_wait_for_lifes += 1
-	
-	print("------------> Main.lifes: ", Main.lifes)
-	print(Main.reward_amount)
 	
 	if Main.lifes > 0:
 		print("next_quiz(), lifes", Main.lifes)

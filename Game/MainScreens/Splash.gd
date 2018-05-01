@@ -18,3 +18,6 @@ func _ready():
 
 func _on_Anim_animation_finished(anim_name):
 	get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
+	
+func sound_play():
+	$Tuiu.play()

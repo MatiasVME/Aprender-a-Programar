@@ -177,4 +177,5 @@ playback_speed = 1.0
 anims/show = SubResource( 2 )
 blend_times = [  ]
 
+[connection signal="meta_clicked" from="TextCredits" to="." method="_on_TextCredits_meta_clicked"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

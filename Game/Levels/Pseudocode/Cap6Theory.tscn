@@ -1,0 +1,261 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Game/Levels/Pseudocode/Cap6Theory.gd" type="Script" id=1]
+[ext_resource path="res://Game/Pets/AnyPet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Levels/Pseudocode/AnimElements/Pseudocode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Game/Levels/TheoryTemplate.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=15]
+
+size = 64
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Animation" id=1]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnyPet:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.7, 0.7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnyPet:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 640, 352 ), Vector2( 704, 224 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnyPet:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ 0.0, 1260.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=3]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=5]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=6]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=16]
+
+resource_name = "anim15"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnyPet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 320 ), Vector2( 624, 352 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pseudocode:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 4, 1 ),
+"update": 0,
+"values": [ Vector2( 592, 80 ), Vector2( 1312, 80 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=8]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=9]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=10]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnyPet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 704, 224 ), Vector2( 128, 320 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnyPet:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ 1260.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pseudocode:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 4, 1 ),
+"update": 0,
+"values": [ Vector2( 1328, 80 ), Vector2( 592, 80 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=12]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=13]
+
+length = 1.0
+loop = false
+step = 0.1
+
+[sub_resource type="Animation" id=14]
+
+length = 0.5
+loop = false
+step = 0.1
+
+[node name="Cap6Theory" type="Node" index="0"]
+script = ExtResource( 1 )
+
+[node name="AnyPet" parent="." index="0" instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 624, 352 )
+scale = Vector2( 0.7, 0.7 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Pseudocode" parent="." index="1" instance=ExtResource( 3 )]
+position = Vector2( 1312, 80 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Background" parent="Pseudocode" index="0"]
+margin_bottom = 160.0
+
+[node name="Text" parent="Pseudocode" index="1"]
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_text = "int edad = 18
+const decimal PI = 3.14"
+text = "int edad = 18
+const decimal PI = 3.14"
+
+[node name="TheoryTemplate" parent="." index="2" instance=ExtResource( 5 )]
+editor/display_folded = true
+
+[node name="Anim" type="AnimationPlayer" parent="." index="3"]
+root_node = NodePath("..")
+autoplay = "anim1"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/anim1 = SubResource( 1 )
+anims/anim10 = SubResource( 2 )
+anims/anim11 = SubResource( 3 )
+anims/anim12 = SubResource( 4 )
+anims/anim13 = SubResource( 5 )
+anims/anim14 = SubResource( 6 )
+anims/anim15 = SubResource( 16 )
+anims/anim2 = SubResource( 7 )
+anims/anim3 = SubResource( 8 )
+anims/anim4 = SubResource( 9 )
+anims/anim5 = SubResource( 10 )
+anims/anim6 = SubResource( 11 )
+anims/anim7 = SubResource( 12 )
+anims/anim8 = SubResource( 13 )
+anims/anim9 = SubResource( 14 )
+blend_times = [  ]
+
+[connection signal="changed_text" from="TheoryTemplate/RPGDialog" to="." method="_on_RPGDialog_changed_text"]
+[connection signal="changed_text" from="TheoryTemplate/RPGDialog" to="TheoryTemplate" method="_on_RPGDialog_changed_text"]
+[connection signal="animation_finished" from="TheoryTemplate/Anim" to="." method="_on_Anim_animation_finished"]
+
+[editable path="AnyPet"]
+
+[editable path="Pseudocode"]
+
+[editable path="TheoryTemplate"]

@@ -16,6 +16,9 @@ func _ready():
 		Main.current_stage = Main.THEORY
 
 func _on_X2_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	if Main.firebase != null:
 		Main.firebase.show_rewarded_video()
 		
@@ -127,6 +130,9 @@ func save_all(is_continue = false):
 				get_tree().change_scene("res://Game/MainScreens/Credits.tscn")
 
 func _on_Back_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(true)
 
@@ -135,6 +141,9 @@ func _on_Back_pressed():
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
 	
 func _on_Continue_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	$Continue.hide()
 	
 	save_all(true)

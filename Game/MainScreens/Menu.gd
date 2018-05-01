@@ -19,19 +19,33 @@ func _ready():
 		$Notes.hide()
 
 func _on_Connect_pressed():
-	# TODO: Hacer una animación para cambiar de escena
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+
 	get_tree().change_scene("res://Game/MainScreens/Connect.tscn")
 
 func _on_Exit_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	get_tree().quit()
 
 func _on_Awards_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	get_tree().change_scene("res://Game/MainScreens/Awards.tscn")
 	
 func _on_Modes_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	get_tree().change_scene("res://Game/MainScreens/Modes.tscn")
 
 func _on_Options_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	get_tree().change_scene("res://Game/MainScreens/Options.tscn")
 
 func firebase_things():
@@ -47,7 +61,13 @@ func firebase_things():
 		$Grid/Connect.disabled = true
 
 func _on_Credits_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	get_tree().change_scene("res://Game/MainScreens/Credits.tscn")
 
 func _on_Text_meta_clicked(meta):
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	OS.shell_open(meta)

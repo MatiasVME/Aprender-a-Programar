@@ -5,10 +5,10 @@ var dialog_num = 1
 func _ready():
 	# El ready de $TheoryTemplate current_chapter es 1
 	if Main.current_chapter == 1:
-		Main.current_chapter = 5
+		Main.current_chapter = 6
 		
-	if not Main.data["Chapters"].has("Cap5"):
-		Main.data["Chapters"]["Cap5"] = {
+	if not Main.data["Chapters"].has("Cap6"):
+		Main.data["Chapters"]["Cap6"] = {
 			ScoreValueForDialogue = 4,
 			MoneyValueForDialogue = 4,
 			ScoreValueForAnswer = 6,

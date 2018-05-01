@@ -11,10 +11,10 @@ func _ready():
 	if Main.current_chapter == null:
 		Main.current_chapter = 1
 	
-	var cap = str("Cap", Main.current_chapter)
-	# Solución rapida, ya el primer parrafo no se cuenta como ganancia.
-	Main.win_money += Main.data["Chapters"][cap]["MoneyValueForDialogue"]
-	Main.win_score += Main.data["Chapters"][cap]["ScoreValueForDialogue"]
+#	var cap = str("Cap", Main.current_chapter)
+#	# Solución rapida, ya el primer parrafo no se cuenta como ganancia.
+#	Main.win_money += Main.data["Chapters"][cap]["MoneyValueForDialogue"]
+#	Main.win_score += Main.data["Chapters"][cap]["ScoreValueForDialogue"]
 
 func start_dialog(pet_name, rpg_dialog):
 	var file = File.new()
@@ -41,6 +41,9 @@ func _on_RPGDialog_end_dialog():
 	$Anim.play("finish")
 
 func _on_Back_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	MusicManager.select_music(MusicManager.MENU)
 	MusicManager.play_music()
 	
@@ -58,6 +61,9 @@ func _on_ButtonDelay_timeout():
 	$Bottom/Next.show()
 
 func _on_RPGDialog_changed_text():
+	SoundManager.select_sound(SoundManager.CORRECT)
+	SoundManager.play_sound()
+		
 	var cap = str("Cap", Main.current_chapter)
 	# Va sumando el score y dinero ganado por leer los dialogos
 	Main.win_money += Main.data["Chapters"][cap]["MoneyValueForDialogue"]

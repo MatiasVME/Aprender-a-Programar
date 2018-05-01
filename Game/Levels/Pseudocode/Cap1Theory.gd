@@ -17,7 +17,7 @@ func _ready():
 		rpg_dialog.add_section(pet_name, "Para eso utilizaremos un pseudolenguaje de programacion inventado por mi, que recolecta las estructuras básicas de la programación.")
 		rpg_dialog.add_section(pet_name, "Bueno, este capítulo es solo para presentarme y decir un poco como va el tema acá.")
 		rpg_dialog.add_section(pet_name, "Normalmente usted verá una parte teórica y otra parte práctica, en la parte teórica me verá a mi hablando cosas y en la parte práctica, pondremos a prueba lo estudiado.")
-		rpg_dialog.add_section(pet_name, "Si quiere puede pasar por la tienda y comprar nuevos profesores, pero yo siempre seré el mejor. Y no te preocupes que nos compran con dinero de juego.")
+		rpg_dialog.add_section(pet_name, "A futuro se podrán comprar nuevos profesores, pero yo siempre seré el mejor. Y no te preocupes que nos compran con dinero de juego.")
 		rpg_dialog.add_section(pet_name, "Eso es todo por ahora, espero verlo nuevamente.")
 		
 	rpg_dialog.start_dialog()

@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 Persistence="*res://Game/Autoloads/Persistence.tscn"
 Main="*res://Game/Autoloads/Main.gd"
 MusicManager="*res://Game/Autoloads/MusicManager.tscn"
+SoundManager="*res://Game/Autoloads/SoundManager.tscn"
 
 [display]
 

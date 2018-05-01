@@ -11,4 +11,7 @@ func _ready():
 	$YourPets.text = str("Mascotas: ", Main.data["Pets"])
 
 func _on_Back_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
 	get_tree().change_scene("res://Game/MainScreens/Awards.tscn")

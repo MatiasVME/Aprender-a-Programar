@@ -171,6 +171,16 @@ disabled = true
 [node name="Label" parent="Panel/Margin/Scroll/Grid/Cap5" index="0"]
 text = "Variables"
 
+[node name="Cap6" parent="Panel/Margin/Scroll/Grid" index="5" instance=ExtResource( 4 )]
+margin_left = 404.0
+margin_top = 456.0
+margin_right = 804.0
+margin_bottom = 680.0
+disabled = true
+
+[node name="Label" parent="Panel/Margin/Scroll/Grid/Cap6" index="0"]
+text = "Constantes"
+
 [node name="Back" parent="." index="2" instance=ExtResource( 5 )]
 margin_left = -143.913
 margin_right = -18.9132
@@ -190,6 +200,7 @@ blend_times = [  ]
 [connection signal="pressed" from="Panel/Margin/Scroll/Grid/Cap3" to="." method="_on_Cap3_pressed"]
 [connection signal="pressed" from="Panel/Margin/Scroll/Grid/Cap4" to="." method="_on_Cap4_pressed"]
 [connection signal="pressed" from="Panel/Margin/Scroll/Grid/Cap5" to="." method="_on_Cap5_pressed"]
+[connection signal="pressed" from="Panel/Margin/Scroll/Grid/Cap6" to="." method="_on_Cap6_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 
 [editable path="Panel/Margin/Scroll/Grid/Cap1"]
@@ -201,3 +212,5 @@ blend_times = [  ]
 [editable path="Panel/Margin/Scroll/Grid/Cap4"]
 
 [editable path="Panel/Margin/Scroll/Grid/Cap5"]
+
+[editable path="Panel/Margin/Scroll/Grid/Cap6"]

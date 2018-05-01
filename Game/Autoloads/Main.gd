@@ -3,7 +3,7 @@ extends Node
 const RES_X = 1280
 const RES_Y = 720
 
-var version = "v0.5.0-dev"
+var version = "v1.0.0"
 var music_enable = true
 var sound_enable = true
 
@@ -37,13 +37,15 @@ var current_stage = -1
 var pets_names = ["Pipo", "Stuar", "Posholo", "Cato"]
 
 var data
+const DATA_VERSION = 2
 
 func _ready():
 	randomize()
-	
-	# Por el momento
+
+	# Para tests
 	if debug:
 		Persistence.remove_all_data()
+		pass
 	
 	Persistence.mode = Persistence.MODE_ENCRYPTED
 	data = Persistence.get_data(Main.current_user)
@@ -55,6 +57,11 @@ func _ready():
 	google_user = firebase_get_google_user()
 	
 	create_data_if_not_exist()
+	
+	# Borra toda la data si no esta a la misma versión de data
+	if data["DataVersion"] != DATA_VERSION:
+		Persistence.remove_all_data()
+		get_tree().quit()
 
 func reset_values():
 	win_score = 0
@@ -77,11 +84,6 @@ func firebase_auth_config():
 		firebase.authConfig("'Google':true,'Facebook':true")
 	
 func _receive_message(tag, from, key, data):
-	print("tag: ", tag)
-	print("from: ", from)
-	print("key: ", key)
-	print("data: ", data)
-	
 	if tag == "FireBase" and from == "AdMob":
 		if key == "AdMobReward":
 			# when rewared video play complete
@@ -120,16 +122,15 @@ func debug(message, something1 = "", something2 = ""):
 func create_data_if_not_exist():
 	if data.empty():
 		var rand_pet = int(round(rand_range(0, pets_names.size() - 1)))
-		debug("rand_pet: ", rand_pet)
 		var pet = pets_names[rand_pet]
 		var pets = []
 		pets.append(pet)
 		
+		data["DataVersion"] = DATA_VERSION
 		data["Pets"] = pets
 		data["PetSelected"] = pet
 		data["Money"] = 50
 		data["Score"] = 0
-		data["DataVersion"] = 1
 		data["PseudocodePastsLevels"] = 1 # debe estar en 1
 		data["Chapters"] = {
 			Cap1 = {
@@ -137,50 +138,8 @@ func create_data_if_not_exist():
 				MoneyValueForDialogue = 3,
 				TheoryCompleted = false,
 				PracticeCompleted = true
-			},
-			Cap2 = {
-				ScoreValueForDialogue = 3,
-				MoneyValueForDialogue = 3,
-				ScoreValueForAnswer = 5,
-				MoneyValueForAnswer = 5,
-				TheoryCompleted = false, # debe estar en false
-				PracticeCompleted = false
-			},
-			Cap3 = {
-				ScoreValueForDialogue = 3,
-				MoneyValueForDialogue = 3,
-				ScoreValueForAnswer = 5,
-				MoneyValueForAnswer = 5,
-				TheoryCompleted = false,
-				PracticeCompleted = false
-			},
-			Cap4 = {
-				ScoreValueForDialogue = 3,
-				MoneyValueForDialogue = 3,
-				ScoreValueForAnswer = 5,
-				MoneyValueForAnswer = 5,
-				TheoryCompleted = false,
-				PracticeCompleted = false
-			},
-			Cap5 = {
-				ScoreValueForDialogue = 3,
-				MoneyValueForDialogue = 3,
-				ScoreValueForAnswer = 5,
-				MoneyValueForAnswer = 5,
-				TheoryCompleted = false,
-				PracticeCompleted = false
-			},
-			Cap6 = {
-				ScoreValueForDialogue = 3,
-				MoneyValueForDialogue = 3,
-				ScoreValueForAnswer = 5,
-				MoneyValueForAnswer = 5,
-				TheoryCompleted = false,
-				PracticeCompleted = false
 			}
-		} 
+		}
 		
 		Persistence.save_data(current_user)
-
-func reset():
-	request_ready()
+		
