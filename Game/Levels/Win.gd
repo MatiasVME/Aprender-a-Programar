@@ -106,6 +106,8 @@ func save_all(is_continue = false):
 		
 		Persistence.save_data(Main.current_user)
 		
+		ChaptersData.create_data(Main.current_chapter)
+		
 		if is_continue:
 			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")
 			get_tree().change_scene(scene_path)
@@ -118,6 +120,8 @@ func save_all(is_continue = false):
 			Main.data["PseudocodePastsLevels"] += 1
 		
 		Persistence.save_data(Main.current_user)
+		
+		ChaptersData.create_data(Main.current_chapter)
 		
 		if is_continue:
 			var scene_path = str("res://Game/Levels/Pseudocode/Cap", Main.current_chapter, "Theory.tscn")

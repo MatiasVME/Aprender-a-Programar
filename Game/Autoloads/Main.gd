@@ -3,7 +3,7 @@ extends Node
 const RES_X = 1280
 const RES_Y = 720
 
-var version = "v1.0.0"
+var version = "v1.1.0"
 var music_enable = true
 var sound_enable = true
 

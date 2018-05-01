@@ -24,6 +24,7 @@ Persistence="*res://Game/Autoloads/Persistence.tscn"
 Main="*res://Game/Autoloads/Main.gd"
 MusicManager="*res://Game/Autoloads/MusicManager.tscn"
 SoundManager="*res://Game/Autoloads/SoundManager.tscn"
+ChaptersData="*res://Game/Autoloads/ChaptersData.gd"
 
 [display]
 

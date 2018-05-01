@@ -6,18 +6,6 @@ func _ready():
 	# El ready de $TheoryTemplate current_chapter es 1
 	if Main.current_chapter == 1:
 		Main.current_chapter = 6
-		
-	if not Main.data["Chapters"].has("Cap6"):
-		Main.data["Chapters"]["Cap6"] = {
-			ScoreValueForDialogue = 4,
-			MoneyValueForDialogue = 4,
-			ScoreValueForAnswer = 6,
-			MoneyValueForAnswer = 6,
-			TheoryCompleted = false, # debe estar en false
-			PracticeCompleted = false
-		}
-		
-		Persistence.save_data(Main.current_user)
 	
 	var rpg_dialog = $TheoryTemplate/RPGDialog
 

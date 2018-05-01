@@ -10,7 +10,7 @@ script = ExtResource( 1 )
 
 [node name="Incorrect" type="AudioStreamPlayer" parent="." index="0"]
 stream = ExtResource( 2 )
-volume_db = -10.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -18,7 +18,7 @@ bus = "Master"
 
 [node name="Correct" type="AudioStreamPlayer" parent="." index="1"]
 stream = ExtResource( 3 )
-volume_db = -10.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -26,7 +26,7 @@ bus = "Master"
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource( 4 )
-volume_db = -10.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
