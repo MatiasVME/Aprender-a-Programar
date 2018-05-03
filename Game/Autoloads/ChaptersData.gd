@@ -10,6 +10,7 @@ func create_data(chapter):
 		4: chapter_4()
 		5: chapter_5()
 		6: chapter_6()
+		7: chapter_7()
 		
 	Persistence.save_data(Main.current_user)
 
@@ -38,10 +39,10 @@ func chapter_3():
 func chapter_4():
 	if not Main.data["Chapters"].has("Cap4"):
 		Main.data["Chapters"]["Cap4"] = {
-			ScoreValueForDialogue = 3,
-			MoneyValueForDialogue = 3,
-			ScoreValueForAnswer = 5,
-			MoneyValueForAnswer = 5,
+			ScoreValueForDialogue = 4,
+			MoneyValueForDialogue = 4,
+			ScoreValueForAnswer = 6,
+			MoneyValueForAnswer = 6,
 			TheoryCompleted = false, # debe estar en false
 			PracticeCompleted = false
 		}
@@ -67,8 +68,15 @@ func chapter_6():
 			TheoryCompleted = false, # debe estar en false
 			PracticeCompleted = false
 		}
-	
-	
-	
-	
+
+func chapter_7():
+	if not Main.data["Chapters"].has("Cap7"):
+		Main.data["Chapters"]["Cap7"] = {
+			ScoreValueForDialogue = 5,
+			MoneyValueForDialogue = 5,
+			ScoreValueForAnswer = 7,
+			MoneyValueForAnswer = 7,
+			TheoryCompleted = false, # debe estar en false
+			PracticeCompleted = false
+		}
 	

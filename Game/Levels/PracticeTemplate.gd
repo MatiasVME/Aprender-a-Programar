@@ -38,13 +38,20 @@ func next_quiz():
 	if not current_quiz_num >= quiz_array.size() and Main.lifes > 0:
 		current_quiz = quiz_array[current_quiz_num]
 		
-		match quiz_array[current_quiz_num].type:
-			2:
-				prepare_tf(current_quiz)
-				$Anim.play("tf_show")
-			3:
-				prepare_three_alt(current_quiz)
-				$Anim.play("ta_show")
+		print(quiz_array)
+		
+		if typeof(quiz_array[current_quiz_num]) == TYPE_OBJECT:
+			match quiz_array[current_quiz_num].type:
+				2:
+					prepare_tf(current_quiz)
+					$Anim.play("tf_show")
+				3:
+					prepare_three_alt(current_quiz)
+					$Anim.play("ta_show")
+		elif typeof(quiz_array[current_quiz_num]) == TYPE_DICTIONARY:
+			if quiz_array[current_quiz_num]["Type"] == "BuildLine4":
+				prepare_build_line_4(quiz_array[current_quiz_num])
+				$Anim.play("bl4_show")
 	else:
 		# Finish
 		$Anim.stop()
@@ -67,38 +74,62 @@ func prepare_three_alt(quiz):
 	$Questions/ThreeAlt/TAOpt2/Text.text = quiz.get_alternative(1)
 	$Questions/ThreeAlt/TAOpt3/Text.text = quiz.get_alternative(2)
 	$Questions/Question.text = quiz.get_question()
+
+func prepare_build_line_4(dict):
+	$Questions/Question.text = dict["Question"]
 	
+	var build_line = $Questions/BuildLine/BuildLine4
+	var word1 = dict["Line"]["1"]
+	var word2 = dict["Line"]["2"]
+	var word3 = dict["Line"]["3"]
+	var word4 = dict["Line"]["4"]
+	
+	build_line.reset()
+	build_line.add_sort_line(word1, word2, word3, word4)
+	build_line.disorder()
+	build_line.set_up_slots_and_items()
+
 func pressed_alternative(alternative):
 	if current_quiz != null:
 		current_quiz.select_answer(alternative)
 		
 		if current_quiz.get_result():
-			SoundManager.select_sound(SoundManager.CORRECT)
-			SoundManager.play_sound()
-	
-			$Questions/Result.text = "¡¡Muy Bien!!"
-			
-			var cap = str("Cap", Main.current_chapter)
-			# Va sumando el score y dinero ganado por leer los dialogos
-			Main.win_money += Main.data["Chapters"][cap]["MoneyValueForAnswer"]
-			Main.win_score += Main.data["Chapters"][cap]["ScoreValueForAnswer"]
-			
-			if current_quiz.type == current_quiz.TRUE_OR_FALSE:
-				$Anim.play("tf_hide")
-			elif current_quiz.type == current_quiz.THREE_OPTIONS:
-				$Anim.play("ta_hide")
+			win_question(current_quiz)
 		else:
-			SoundManager.select_sound(SoundManager.INCORRECT)
-			SoundManager.play_sound()
+			lost_question(current_quiz)
+
+func win_question(current_quiz):
+	SoundManager.select_sound(SoundManager.CORRECT)
+	SoundManager.play_sound()
 	
-			$Questions/Result.text = "¡¡Que Mal!!"
+	$Questions/Result.text = "¡¡Muy Bien!!"
 			
-			Main.lifes -= 1
-			
-			if current_quiz.type == current_quiz.TRUE_OR_FALSE:
-				$Anim.play("tf_hide")
-			elif current_quiz.type == current_quiz.THREE_OPTIONS:
-				$Anim.play("ta_hide")
+	var cap = str("Cap", Main.current_chapter)
+	# Va sumando el score y dinero ganado por leer los dialogos
+	Main.win_money += Main.data["Chapters"][cap]["MoneyValueForAnswer"]
+	Main.win_score += Main.data["Chapters"][cap]["ScoreValueForAnswer"]
+
+	hide_question(current_quiz)
+
+func lost_question(current_quiz):
+	SoundManager.select_sound(SoundManager.INCORRECT)
+	SoundManager.play_sound()
+	
+	$Questions/Result.text = "¡¡Que Mal!!"
+	
+	Main.lifes -= 1
+	
+	hide_question(current_quiz)
+
+func hide_question(current_quiz):
+	if typeof(current_quiz) == TYPE_OBJECT:
+		if current_quiz.type == current_quiz.TRUE_OR_FALSE:
+			$Anim.play("tf_hide")
+		elif current_quiz.type == current_quiz.THREE_OPTIONS:
+			$Anim.play("ta_hide")
+	elif typeof(current_quiz) == TYPE_DICTIONARY:
+		if current_quiz["Type"] == "BuildLine4":
+			$Anim.play("bl4_hide")
 
 func finish():
 	if Main.firebase != null:
@@ -150,6 +181,9 @@ func configure_practice(all_quiz):
 			quiz.disarray_alternatves()
 			
 			all_quiz.append(quiz)
+			
+		elif dict["Type"] == "BuildLine4":
+			all_quiz.append(dict)
 
 func _on_TFOpt1_pressed():
 	pressed_alternative(0)
@@ -158,7 +192,7 @@ func _on_TFOpt2_pressed():
 	pressed_alternative(1)
 
 func _on_Anim_animation_finished(anim_name):
-	if anim_name == "tf_hide" or anim_name == "ta_hide":
+	if anim_name == "tf_hide" or anim_name == "ta_hide" or anim_name == "bl4_hide":
 		next_quiz()
 	elif anim_name == "finish":
 		finish()
@@ -192,3 +226,9 @@ func _on_WaitForLifes_timeout():
 	elif times_wait_for_lifes == 7:
 		$WaitForLifes.stop()
 		$Anim.play("finish")
+
+func _on_Finish_pressed():
+	if $Questions/BuildLine/BuildLine4.is_correct():
+		win_question(current_quiz)
+	else:
+		lost_question(current_quiz)

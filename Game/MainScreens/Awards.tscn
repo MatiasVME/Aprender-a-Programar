@@ -47,9 +47,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -150.0
-margin_top = -168.0
+margin_top = -170.0
 margin_right = 150.0
-margin_bottom = 172.0
+margin_bottom = 170.0
 rect_pivot_offset = Vector2( 150, 170 )
 rect_clip_content = false
 mouse_filter = 1
@@ -60,13 +60,11 @@ alignment = 0
 _sections_unfolded = [ "Rect" ]
 
 [node name="Data" parent="VBox" index="0" instance=ExtResource( 3 )]
-editor/display_folded = false
 
 [node name="Label" parent="VBox/Data" index="0"]
 text = "Datos"
 
 [node name="Shop" parent="VBox" index="1" instance=ExtResource( 3 )]
-editor/display_folded = false
 margin_top = 172.0
 margin_bottom = 340.0
 disabled = true

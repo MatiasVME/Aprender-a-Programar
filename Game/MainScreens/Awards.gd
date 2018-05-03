@@ -18,5 +18,9 @@ func _on_Data_pressed():
 func _on_Shop_pressed():
 	SoundManager.select_sound(SoundManager.BUTTON)
 	SoundManager.play_sound()
+
+func _on_Score_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
 	
-	pass # replace with function body
+	get_tree().change_scene("res://Game/MainScreens/Score.tscn")

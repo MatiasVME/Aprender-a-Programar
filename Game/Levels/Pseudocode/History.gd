@@ -61,3 +61,10 @@ func _on_Cap6_pressed():
 	
 	Main.current_chapter = 6
 	get_tree().change_scene("res://Game/Levels/TheoryAndPractice.tscn")
+
+func _on_Cap7_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
+	Main.current_chapter = 7
+	get_tree().change_scene("res://Game/Levels/TheoryAndPractice.tscn")
