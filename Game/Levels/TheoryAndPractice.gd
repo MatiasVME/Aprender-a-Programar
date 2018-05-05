@@ -4,6 +4,9 @@ func _ready():
 	if Main.current_chapter == null:
 		Main.current_chapter = 1
 	
+	# Crea la data del chapter si no existe
+	ChaptersData.create_data(Main.current_chapter)
+	
 	var cap = str("Cap", Main.current_chapter)
 	
 	if Main.data["Chapters"][cap]["TheoryCompleted"] == true:

@@ -206,8 +206,8 @@
                     "1" : "Hola amigo, que tenga un buen día usted.",
                     "2" : "Hoy hablaremos un poco acerca de algo llamado sintaxis.",
                     "3" : "Hemos dicho que a los ordenadores no le podemos dar instrucciones como nosotros queramos, no, no, no.",
-                    "4" : "Sino que tenemos que respetar una cierta forma o cirtas reglas de sintaxis.",
-                    "5" : "Entonces amigo, la sintaxis describe las combinaciones posibles que nosotros podemos realizar con el lenguaje de programación o pseudocódigo.",
+                    "4" : "Sino que tenemos que respetar una cierta forma o ciertas reglas de sintaxis.",
+                    "5" : "Entonces amigo, la sintaxis describe las combinaciones posibles que nosotros podemos realizar con el lenguaje de programación o con pseudocódigo.",
                     "6" : "Osea amigo, nosotros tenemos que respetar esa sintaxis para que el programa funcione correctamente.",
                     "7" : "Tanto los lenguajes de programación como los de pseudocódigo tienen diferentes sintaxis, la idea de este curso es entender la sintaxis de nuestro pseudocódigo.",
                     "8" : "Para poder entender más fácilmente la mayoría de los lenguajes de programación, y también de paso entrenar la lógica de la programación.",
@@ -232,8 +232,76 @@
                         "Type" : "ThreeOptions",
                         "Question" : "¿Que un lenguaje posea una sintaxis quiere decir que?",
                         "Options": {
-                            "1" : "Que un lenguaje debe respetar ciertas combinaciones posibles.",
-                            "2" : "Que podemos escribir un programa como nosotros queramos.",
+                            "1" : "Debe respetar ciertas combinaciones posibles.",
+                            "2" : "Podemos escribir como nosotros queramos.",
+                            "3" : "El código se debe leer línea por línea."
+                        },
+                        "CorrectAnswer" : 1
+                    },
+                    "3": {
+                        "Type" : "TrueOrFalse",
+                        "Question" : "Para que el programa se ejecute correctamente debemos respetar la sintaxis.",
+                        "Options": {
+                            "1" : "V",
+                            "2" : "F"
+                        },
+                        "CorrectAnswer" : 1
+                    },
+                    "4": {
+                        "Type" : "BuildLine4",
+                        "Question" : "Declare una variable de tipo decimal con el nombre 'dec' cuyo valor sea 6.221",
+                        "Line": {
+                            "1" : "decimal",
+                            "2" : "dec",
+                            "3" : "=",
+                            "4" : "6.221"
+                        }
+                    },
+                    "5": {
+                        "Type" : "BuildLine4",
+                        "Question" : "Declare una variable cantidad de tipo int con el valor de 123",
+                        "Line": {
+                            "1" : "int",
+                            "2" : "cantidad",
+                            "3" : "=",
+                            "4" : "123"
+                        }
+                    }
+                }
+            },
+            "8" : {
+                "Theory" : {
+                    "1" : "Hola amigo, que tenga un buen día usted.",
+                    "2" : "Hoy hablaremos un poco acerca de algo llamado sintaxis.",
+                    "3" : "Hemos dicho que a los ordenadores no le podemos dar instrucciones como nosotros queramos, no, no, no.",
+                    "4" : "Sino que tenemos que respetar una cierta forma o ciertas reglas de sintaxis.",
+                    "5" : "Entonces amigo, la sintaxis describe las combinaciones posibles que nosotros podemos realizar con el lenguaje de programación o con pseudocódigo.",
+                    "6" : "Osea amigo, nosotros tenemos que respetar esa sintaxis para que el programa funcione correctamente.",
+                    "7" : "Tanto los lenguajes de programación como los de pseudocódigo tienen diferentes sintaxis, la idea de este curso es entender la sintaxis de nuestro pseudocódigo.",
+                    "8" : "Para poder entender más fácilmente la mayoría de los lenguajes de programación, y también de paso entrenar la lógica de la programación.",
+                    "9" : "Bueno sigamos un poco con las variables. En cada línea de la derecha vemos como se declaran diferentes variables, vemos un patrón común.",
+                    "10" : "Vemos que en nuestro pseudocódigo tenemos que decir: '<tipo de dato> <identificador> [= <valor>]'",
+                    "11" : "Siempre va el tipo de dato primero, luego el identificador o nombre y luego opcionalmente el signo de asignación con un valor.",
+                    "12" : "Trate de quedarse con el recuerdo del orden. ¡Ya que llego el momento de entrenarlo!",
+                    "13" : "Bueno amigo nos leeremos en un próximo capítulo, chao."
+                },
+                "Practice" : {
+                    "1": {
+                        "Type" : "BuildLine4",
+                        "Question" : "Declare una variable edad de tipo int con el valor de 18",
+                        "Line": {
+                            "1" : "int",
+                            "2" : "edad",
+                            "3" : "=",
+                            "4" : "18"
+                        },
+                    },
+                    "2": {
+                        "Type" : "ThreeOptions",
+                        "Question" : "¿Que un lenguaje posea una sintaxis quiere decir que?",
+                        "Options": {
+                            "1" : "Debe respetar ciertas combinaciones posibles.",
+                            "2" : "Podemos escribir un programa como nosotros queramos.",
                             "3" : "Qué el código se debe leer línea por línea."
                         },
                         "CorrectAnswer" : 1

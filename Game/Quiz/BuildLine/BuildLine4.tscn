@@ -33,6 +33,7 @@ margin_left = 944.0
 margin_top = 208.0
 margin_right = 1194.0
 margin_bottom = 288.0
+color = Color( 0.654902, 0.176471, 0.686275, 1 )
 
 [node name="Item1" parent="." index="4" instance=ExtResource( 3 )]
 margin_left = 80.0
@@ -84,4 +85,3 @@ texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 6 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[connection signal="pressed" from="Finish" to="." method="_on_Finish_pressed"]

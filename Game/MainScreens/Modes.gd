@@ -14,3 +14,9 @@ func _on_History_pressed():
 	SoundManager.play_sound()
 	
 	get_tree().change_scene("res://Game/Levels/Pseudocode/History.tscn")
+
+func _on_BubbleBool_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
+	get_tree().change_scene("res://Game/MiniGames/BubbleBoolean/BubbleBoolean.tscn")

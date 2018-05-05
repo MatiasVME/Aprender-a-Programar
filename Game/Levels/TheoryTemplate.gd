@@ -10,11 +10,14 @@ func _ready():
 	
 	if Main.current_chapter == null:
 		Main.current_chapter = 1
+		
+	# Crea la data del chapter si no existe
+	ChaptersData.create_data(Main.current_chapter)
 	
-#	var cap = str("Cap", Main.current_chapter)
-#	# Solución rapida, ya el primer parrafo no se cuenta como ganancia.
-#	Main.win_money += Main.data["Chapters"][cap]["MoneyValueForDialogue"]
-#	Main.win_score += Main.data["Chapters"][cap]["ScoreValueForDialogue"]
+	var cap = str("Cap", Main.current_chapter)
+	# Solución rapida, ya el primer parrafo no se cuenta como ganancia.
+	Main.win_money += Main.data["Chapters"][cap]["MoneyValueForDialogue"]
+	Main.win_score += Main.data["Chapters"][cap]["ScoreValueForDialogue"]
 
 func start_dialog(pet_name, rpg_dialog):
 	var file = File.new()

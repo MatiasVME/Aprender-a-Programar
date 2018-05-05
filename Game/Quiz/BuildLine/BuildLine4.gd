@@ -52,6 +52,7 @@ func is_correct():
 func reset():
 	for i in range(1, sort_line.size() + 1):
 		get_node(str("Slot", i, "/Text")).text = ""
+		get_node(str("Slot", i)).color = Color(0.6, 0.6, 0.6)
 	
 	sort_line.clear()
 	disorderer_line.clear()

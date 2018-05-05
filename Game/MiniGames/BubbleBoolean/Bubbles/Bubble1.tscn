@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Game/MiniGames/BubbleBoolean/Bubbles/Bubble1.gd" type="Script" id=1]
+[ext_resource path="res://Game/MiniGames/BubbleBoolean/Bubbles/Bubble1-Normal.png" type="Texture" id=2]
+[ext_resource path="res://Game/MiniGames/BubbleBoolean/Bubbles/Bubble1-Pressed.png" type="Texture" id=3]
+[ext_resource path="res://Game/MiniGames/BubbleBoolean/Bubbles/Bubble1-Hover.png" type="Texture" id=4]
+[ext_resource path="res://Game/Fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 22
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 128, 64 )
+
+[node name="Bubble1" type="RigidBody2D" index="0"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 2
+mass = 1.0
+friction = 1.0
+bounce = 0.7
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+
+[node name="Button" type="TextureButton" parent="." index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -128.0
+margin_top = -64.0
+margin_right = 128.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Text" type="Label" parent="Button" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 256.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "not (a == 2 and b == 3)"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Collision" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="Movement" type="Timer" parent="." index="2"]
+process_mode = 0
+wait_time = 3.0
+one_shot = false
+autostart = true
+
+[node name="Anim" type="AnimationPlayer" parent="." index="3"]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+blend_times = [  ]
+
+[connection signal="timeout" from="Movement" to="." method="_on_Movement_timeout"]

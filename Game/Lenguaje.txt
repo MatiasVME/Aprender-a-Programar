@@ -1,0 +1,22 @@
+Este apartado es una referencia rápida al leguaje utilizado en 'Aprender a Programar'.
+
+[b]Comentarios[/b]
+
+# Esto es un comentario
+
+[b]Tipos de datos y declaración[/b]
+
+# Variable entera que tiene el valor 29
+int edad = 29
+# Variable decimal que tiene el valor 2.14
+decimal noEsPI = 2.14
+# Variable booleana
+bool estaVivo = true
+# Variable string que tiene el valor 'Juancio'
+string nombre = "Juancio"
+# Variable dinámica
+var cualquierCosa = "sdf"
+
+[b]Arreglos y matrices[/b]
+
+# Crear un arreglo vacio de tipo int

@@ -3,7 +3,7 @@ extends Node
 const RES_X = 1280
 const RES_Y = 720
 
-var version = "v1.1.0"
+var version = "v1.2.0"
 var music_enable = true
 var sound_enable = true
 
@@ -129,7 +129,7 @@ func create_data_if_not_exist():
 		data["DataVersion"] = DATA_VERSION
 		data["Pets"] = pets
 		data["PetSelected"] = pet
-		data["Money"] = 50
+		data["Money"] = 0
 		data["Score"] = 0
 		data["PseudocodePastsLevels"] = 1 # debe estar en 1
 		data["Chapters"] = {
