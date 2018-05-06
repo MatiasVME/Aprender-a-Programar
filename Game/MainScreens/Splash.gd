@@ -10,6 +10,7 @@ var texts = [
 
 func _ready():
 	randomize()
+	
 	var rand_text_num = int(round(rand_range(0, texts.size() - 1)))
 	$Text.text = texts[rand_text_num]
 	
@@ -17,7 +18,11 @@ func _ready():
 	MusicManager.play_music()
 
 func _on_Anim_animation_finished(anim_name):
-	get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
+	
+	if Main.data["AcceptPrivacyPolicy"]:
+		get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
+	else:
+		get_tree().change_scene("res://Game/MainScreens/PrivacyPolicy.tscn")
 	
 func sound_play():
 	$Tuiu.play()

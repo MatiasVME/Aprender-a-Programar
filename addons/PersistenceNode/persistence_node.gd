@@ -148,6 +148,8 @@ func remove_all_data():
 				debug("Un error al elimnar el archivo: ", err)
 				return false
 		
+		data = {}
+		
 		return true
 	else:
 		debug("No se a removido ningún archivo.")

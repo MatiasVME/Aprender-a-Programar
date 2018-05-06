@@ -37,37 +37,59 @@ var current_stage = -1
 var pets_names = ["Pipo", "Stuar", "Posholo", "Cato"]
 
 var data
-const DATA_VERSION = 2
+const DATA_VERSION = 4
 
 func _ready():
 	randomize()
 
 	# Para tests
 	if debug:
-		Persistence.remove_all_data()
-		pass
-	
-	Persistence.mode = Persistence.MODE_ENCRYPTED
-	data = Persistence.get_data(Main.current_user)
-	
-	debug(OS.get_user_data_dir())
-	
-	firebase_config()
-	firebase_auth_config()
-	google_user = firebase_get_google_user()
-	
-	create_data_if_not_exist()
-	
-	# Borra toda la data si no esta a la misma versión de data
-	if data["DataVersion"] != DATA_VERSION:
-		Persistence.remove_all_data()
-		get_tree().quit()
+#		Persistence.remove_all_data()
+		Persistence.mode = Persistence.MODE_TEXT
+	else:
+		Persistence.mode = Persistence.MODE_ENCRYPTED
+		
+	data = Persistence.get_data(current_user)
 
+	# Tiene data version
+#	print(data.has("DataVersion"))
+#	print("data[DataVersion] != DATA_VERSION", data["DataVersion"] != DATA_VERSION)
+	if data.has("DataVersion"):
+		if data["DataVersion"] != DATA_VERSION:
+			Persistence.remove_all_data()
+			
+			data["DataVersion"] = DATA_VERSION
+			Persistence.save_data(current_user)
+			
+			get_tree().quit()
+		else:
+			if not data.has("AcceptPrivacyPolicy"):
+				data["AcceptPrivacyPolicy"] = false
+			else:
+				all_data_config()
+	# No hay data version es un nuevo usuario
+	else:
+		data["DataVersion"] = DATA_VERSION
+		
+		if not data.has("AcceptPrivacyPolicy"):
+			data["AcceptPrivacyPolicy"] = false
+		elif data["AcceptPrivacyPolicy"] == true:
+			all_data_config()
+	
+	Persistence.save_data(current_user)
+	
 func reset_values():
 	win_score = 0
 	win_money = 0
 	reward_amount = 1
 	lifes = 1
+
+func all_data_config():
+	firebase_config()
+	firebase_auth_config()
+	google_user = firebase_get_google_user()
+	
+	create_data_if_not_exist()
 
 func firebase_config():
 	if OS.get_name() == "Android":
@@ -110,7 +132,7 @@ func _receive_message(tag, from, key, data):
 
 func firebase_get_google_user():
 	if firebase != null:
-		var guser = Main.firebase.get_google_user()
+		var guser = firebase.get_google_user()
 	
 		if guser != null:
 			return parse_json(guser)
@@ -120,7 +142,7 @@ func debug(message, something1 = "", something2 = ""):
 		print("[AAP] ", message, " ", something1, " ", something2)
 
 func create_data_if_not_exist():
-	if data.empty():
+	if not data.has("Pets"):
 		var rand_pet = int(round(rand_range(0, pets_names.size() - 1)))
 		var pet = pets_names[rand_pet]
 		var pets = []
