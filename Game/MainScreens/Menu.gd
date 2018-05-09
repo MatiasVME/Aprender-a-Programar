@@ -52,13 +52,14 @@ func firebase_things():
 	if Main.firebase != null:
 		Main.firebase.show_banner_ad(true)
 
-		var google_user = Main.firebase_get_google_user()
-		if google_user != null:
-			$User.text = google_user["name"]
-		else:
-			$User.text = "..."
+#		var google_user = Main.firebase_get_google_user()
+#		if google_user != null:
+#			$User.text = google_user["name"]
+#		else:
+		$User.text = "..."
 	else:
 		$Grid/Connect.disabled = true
+		$Privacy.hide()
 
 func _on_Credits_pressed():
 	SoundManager.select_sound(SoundManager.BUTTON)
@@ -71,3 +72,9 @@ func _on_Text_meta_clicked(meta):
 	SoundManager.play_sound()
 	
 	OS.shell_open(meta)
+
+func _on_Privacy_pressed():
+	SoundManager.select_sound(SoundManager.BUTTON)
+	SoundManager.play_sound()
+	
+	get_tree().change_scene("res://Game/MainScreens/PrivacyPolicyInMenu.tscn")

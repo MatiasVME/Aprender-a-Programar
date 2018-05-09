@@ -18,11 +18,14 @@ func _ready():
 	MusicManager.play_music()
 
 func _on_Anim_animation_finished(anim_name):
-	
-	if Main.data["AcceptPrivacyPolicy"]:
-		get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
+	if OS.get_name() == "Android":
+		if Main.data["AcceptPrivacyPolicy"]:
+			get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
+		else:
+			get_tree().change_scene("res://Game/MainScreens/PrivacyPolicy.tscn")
 	else:
-		get_tree().change_scene("res://Game/MainScreens/PrivacyPolicy.tscn")
-	
+		Main.all_data_config()
+		get_tree().change_scene("res://Game/MainScreens/Menu.tscn")
+		
 func sound_play():
 	$Tuiu.play()

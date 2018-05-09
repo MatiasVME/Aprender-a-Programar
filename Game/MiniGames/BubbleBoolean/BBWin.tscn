@@ -1,0 +1,454 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Game/MiniGames/BubbleBoolean/BBWin.gd" type="Script" id=1]
+[ext_resource path="res://Game/Backgrounds/RandomBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Pets/AnyPet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Fonts/Nokia/nokia.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Game/Buttons/Rewards/RewardX2-Normal.png" type="Texture" id=5]
+[ext_resource path="res://Game/Buttons/Rewards/RewardX2-Pressed.png" type="Texture" id=6]
+[ext_resource path="res://Game/Buttons/Reload/Reload-Normal.png" type="Texture" id=7]
+[ext_resource path="res://Game/Buttons/Reload/Reload-Pressed.png" type="Texture" id=8]
+[ext_resource path="res://Game/Buttons/Commons/Back.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 35
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 32
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "show"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Curtain:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Back:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 0.8 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 16, 736 ), Vector2( 16, 576 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("X2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6, 0.9 ),
+"transitions": PoolRealArray( -4, 1 ),
+"update": 0,
+"values": [ Vector2( 569, 736 ), Vector2( 569, 560 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Continue:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.7, 1 ),
+"transitions": PoolRealArray( -4, -4 ),
+"update": 0,
+"values": [ Vector2( 1104, 736 ), Vector2( 1104, 544 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Title:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.8, 1.1, 1.3 ),
+"transitions": PoolRealArray( -4, -4, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnyPet:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.8, 2 ),
+"transitions": PoolRealArray( -4, -4 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.9, 0.9 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Data:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( -4, -4, -4 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="BBWin" type="Node" index="0"]
+script = ExtResource( 1 )
+
+[node name="RandomBackground" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="AnyPet" parent="." index="1" instance=ExtResource( 3 )]
+position = Vector2( 80, 592 )
+scale = Vector2( 0.00705853, 0.00705853 )
+
+[node name="Data" type="Node2D" parent="." index="2"]
+scale = Vector2( 1e-05, 1e-05 )
+_sections_unfolded = [ "Rect", "Transform" ]
+
+[node name="WinScore" type="Label" parent="Data" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 160.0
+margin_right = 1280.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Puntaje Ganado: 99999"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="TotalScore" type="Label" parent="Data" index="1"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 208.0
+margin_right = 1280.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Puntaje Total: 99999"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="WinMoney" type="Label" parent="Data" index="2"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 304.0
+margin_right = 1280.0
+margin_bottom = 352.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Dinero Ganado: 99999"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="TotalMoney" type="Label" parent="Data" index="3"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 352.0
+margin_right = 1280.0
+margin_bottom = 400.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Dinero Total: 99999"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="ComboMax" type="Label" parent="Data" index="4"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 400.0
+margin_right = 1279.0
+margin_bottom = 448.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Combo Max: 999"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="ComboRecord" type="Label" parent="Data" index="5"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 448.0
+margin_right = 1280.0
+margin_bottom = 496.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Combo Record: 999"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="ScoreRecord" type="Label" parent="Data" index="6"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_top = 256.0
+margin_right = 1281.0
+margin_bottom = 304.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Puntaje Record: 999"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Title" type="Label" parent="." index="3"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 32.0
+margin_right = 1280.0
+margin_bottom = 128.0
+rect_scale = Vector2( 0.000165986, 0.000165986 )
+rect_pivot_offset = Vector2( 640, 48 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.933333, 0.898039, 0.0509804, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Has Ganado"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="X2" type="TextureButton" parent="." index="4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -71.0
+margin_top = 15.9991
+margin_right = 71.0
+margin_bottom = 160.999
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Text" type="Label" parent="X2" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.2, 0.278431, 0.94902, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Money"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Continue" type="TextureButton" parent="." index="5"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 735.987
+margin_right = 1264.0
+margin_bottom = 895.987
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+_sections_unfolded = [ "Textures" ]
+
+[node name="Back" parent="." index="6" instance=ExtResource( 9 )]
+margin_top = 736.0
+margin_bottom = 861.0
+
+[node name="Curtain" type="ColorRect" parent="." index="7"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Mouse", "Visibility" ]
+
+[node name="Anim" type="AnimationPlayer" parent="." index="8"]
+root_node = NodePath("..")
+autoplay = "show"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/show = SubResource( 3 )
+blend_times = [  ]
+
+[node name="Timer" type="Timer" parent="." index="9"]
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = true
+
+[connection signal="pressed" from="X2" to="." method="_on_X2_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

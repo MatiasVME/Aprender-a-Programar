@@ -15,7 +15,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 40
+size = 30
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -35,7 +35,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0.1, 0.5 ),
-"transitions": PoolRealArray( -4, 1 ),
+"transitions": PoolRealArray( -4, -4 ),
 "update": 0,
 "values": [ Vector2( -144, 576 ), Vector2( 16, 576 ) ]
 }
@@ -47,7 +47,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( -4, 1 ),
+"transitions": PoolRealArray( -4, -4 ),
 "update": 0,
 "values": [ Vector2( -48, -224 ), Vector2( 0, 96 ) ]
 }
@@ -59,7 +59,7 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( -4, 1 ),
+"transitions": PoolRealArray( -4, -4 ),
 "update": 0,
 "values": [ Vector2( -736, 864 ), Vector2( 1, 176 ) ]
 }
@@ -71,9 +71,9 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( -4, 1 ),
+"transitions": PoolRealArray( -4, -4 ),
 "update": 0,
-"values": [ Vector2( 1232, -160 ), Vector2( 0, 254 ) ]
+"values": [ Vector2( 1232, -160 ), Vector2( 0, 224 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Score:rect_position")
@@ -83,9 +83,9 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( -4, 1 ),
+"transitions": PoolRealArray( -4, -4 ),
 "update": 0,
-"values": [ Vector2( -1088, -32 ), Vector2( 0, 332 ) ]
+"values": [ Vector2( -1088, -32 ), Vector2( 0, 274 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("YourPets:rect_position")
@@ -95,9 +95,21 @@ tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( -4, 1 ),
+"transitions": PoolRealArray( -4, -4 ),
 "update": 0,
-"values": [ Vector2( 528, 752 ), Vector2( 1, 410 ) ]
+"values": [ Vector2( 528, 752 ), Vector2( 1, 378 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BubbleBool:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -4, -4 ),
+"update": 0,
+"values": [ Vector2( 1328, 192 ), Vector2( 0, 326 ) ]
 }
 
 [node name="Data" type="Node" index="0"]
@@ -110,10 +122,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -48.0
-margin_top = -224.0
-margin_right = 1232.0
-margin_bottom = -146.0
+margin_top = 96.0
+margin_right = 1281.0
+margin_bottom = 174.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -136,10 +147,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -736.0
-margin_top = 864.0
-margin_right = 543.0
-margin_bottom = 942.0
+margin_left = 1.0
+margin_top = 176.0
+margin_right = 1280.0
+margin_bottom = 224.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -162,10 +173,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1232.0
-margin_top = -160.0
-margin_right = 2511.0
-margin_bottom = -82.0
+margin_top = 224.0
+margin_right = 1279.0
+margin_bottom = 274.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -188,10 +198,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -1088.0
-margin_top = -32.0
-margin_right = 191.0
-margin_bottom = 46.0
+margin_top = 274.0
+margin_right = 1279.0
+margin_bottom = 326.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -209,15 +218,40 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="YourPets" type="Label" parent="." index="5"]
+[node name="BubbleBool" type="Label" parent="." index="5"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 528.0
-margin_top = 752.0
-margin_right = 1807.0
-margin_bottom = 830.0
+margin_top = 326.0
+margin_right = 1280.0
+margin_bottom = 378.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.901961, 0.101961, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "BubbleBool"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="YourPets" type="Label" parent="." index="6"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_top = 378.0
+margin_right = 1280.0
+margin_bottom = 432.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -237,12 +271,10 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Back" parent="." index="6" instance=ExtResource( 4 )]
-margin_left = -143.994
-margin_right = -18.9935
+[node name="Back" parent="." index="7" instance=ExtResource( 4 )]
 _sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="Anim" type="AnimationPlayer" parent="." index="7"]
+[node name="Anim" type="AnimationPlayer" parent="." index="8"]
 root_node = NodePath("..")
 autoplay = "show"
 playback_process_mode = 1

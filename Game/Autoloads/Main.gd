@@ -3,7 +3,7 @@ extends Node
 const RES_X = 1280
 const RES_Y = 720
 
-var version = "v1.2.0"
+var version = "v1.3.0"
 var music_enable = true
 var sound_enable = true
 
@@ -36,6 +36,13 @@ var current_stage = -1
 # Pets (Kripo ya no)
 var pets_names = ["Pipo", "Stuar", "Posholo", "Cato"]
 
+# Mini-Games
+#
+
+# BubbleBool
+var bb_max_combo = 0
+# usa win_score y win_money
+
 var data
 const DATA_VERSION = 4
 
@@ -52,8 +59,6 @@ func _ready():
 	data = Persistence.get_data(current_user)
 
 	# Tiene data version
-#	print(data.has("DataVersion"))
-#	print("data[DataVersion] != DATA_VERSION", data["DataVersion"] != DATA_VERSION)
 	if data.has("DataVersion"):
 		if data["DataVersion"] != DATA_VERSION:
 			Persistence.remove_all_data()
@@ -83,11 +88,16 @@ func reset_values():
 	win_money = 0
 	reward_amount = 1
 	lifes = 1
+	
+func reset_bb():
+	reset_values()
+	
+	bb_max_combo = 0
 
 func all_data_config():
 	firebase_config()
-	firebase_auth_config()
-	google_user = firebase_get_google_user()
+#	firebase_auth_config()
+#	google_user = firebase_get_google_user()
 	
 	create_data_if_not_exist()
 
@@ -160,6 +170,25 @@ func create_data_if_not_exist():
 				MoneyValueForDialogue = 3,
 				TheoryCompleted = false,
 				PracticeCompleted = true
+			}
+		}
+		data["MiniGames"] = {
+			BubbleBool = {
+				# Un minuto
+				Fast = {
+					MaxCombo = 0,
+					MaxScore = 0
+				},
+				# Normal
+				Normal = {
+					MaxCombo = 0,
+					MaxScore = 0
+				},
+				# Slow
+				Slow = {
+					MaxCombo = 0,
+					MaxScore = 0
+				}
 			}
 		}
 		

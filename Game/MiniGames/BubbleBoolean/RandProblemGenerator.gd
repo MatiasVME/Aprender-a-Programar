@@ -1,7 +1,7 @@
 extends Object
 
 const HAS_NOT_PROB = 3 # 1 de 3
-const IS_NUMERIC_PROB = 2
+const IS_NUMERIC_PROB = 1.8
 const NUMERIC_DISTANCE = 2
 
 var has_not = false
@@ -29,7 +29,6 @@ func reset_values():
 	nums = [0, 0] 
 	booleans = [false, false]
 	# Operador relacional
-	oprel
 	
 	expresion = []
 
@@ -84,9 +83,16 @@ func build_expresion():
 	if has_not:
 		expresion.append(")")
 	
-	return (str(expresion)).replace(", ", "")
+	var result = (str(expresion)).replace(", ", "")
+	result = result.replace("[", "")
+	result = result.replace("]", "")
 	
-func eval(input):
+	if not is_numeric:
+		result = result.to_lower()
+	
+	return result
+	
+static func eval(input):
 	var script = GDScript.new()
 	script.set_source_code("func eval():\n\treturn " + input)
 	script.reload()
@@ -94,4 +100,7 @@ func eval(input):
 	var obj = Reference.new()
 	obj.set_script(script)
 
-	return obj.eval() 
+#	var result = obj.eval()
+#	print("result: ", result)
+
+	return obj.eval()

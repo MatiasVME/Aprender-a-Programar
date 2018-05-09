@@ -3,9 +3,6 @@ extends Node
 func _ready():
 	pass
 
-func _on_RichTextLabel_meta_clicked(meta):
-	OS.shell_open(meta)
-
 func _on_Yes_pressed():
 	Main.data["AcceptPrivacyPolicy"] = true
 	
