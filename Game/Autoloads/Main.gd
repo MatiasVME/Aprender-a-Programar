@@ -42,6 +42,8 @@ var pets_names = ["Pipo", "Stuar", "Posholo", "Cato"]
 # BubbleBool
 var bb_max_combo = 0
 # usa win_score y win_money
+enum BBMode {BBFAST, BBNORMAL, BBSLOW}
+var bb_mode = BBMode.BBFAST
 
 var data
 const DATA_VERSION = 4

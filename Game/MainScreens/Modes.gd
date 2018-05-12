@@ -19,4 +19,4 @@ func _on_BubbleBool_pressed():
 	SoundManager.select_sound(SoundManager.BUTTON)
 	SoundManager.play_sound()
 	
-	get_tree().change_scene("res://Game/MiniGames/BubbleBoolean/BubbleBoolean.tscn")
+	get_tree().change_scene("res://Game/MainScreens/OptionsBubbleBool.tscn")

@@ -12,6 +12,8 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 50
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 5 )
@@ -20,6 +22,8 @@ _sections_unfolded = [ "Font", "Settings" ]
 [sub_resource type="DynamicFont" id=2]
 
 size = 50
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 5 )
@@ -52,6 +56,8 @@ b = Vector2( 0, 688 )
 [sub_resource type="DynamicFont" id=7]
 
 size = 50
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 5 )
@@ -164,7 +170,6 @@ tracks/0/keys = {
 
 [node name="GameTemplate" type="Node" index="0"]
 script = ExtResource( 1 )
-time_to_end = 60
 
 [node name="RandomBackground" parent="." index="0" instance=ExtResource( 2 )]
 

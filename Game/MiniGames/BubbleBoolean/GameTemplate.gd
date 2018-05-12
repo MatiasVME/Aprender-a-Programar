@@ -3,7 +3,9 @@ extends Node
 const CANT_BUBBLES = 5
 const COMBO_TIME = 3
 
-export (int) var time_to_end = 60
+var time_to_end = 60
+var big_problems = false
+var rigid_mode = false
 
 onready var rand_problem_generator = preload("res://Game/MiniGames/BubbleBoolean/RandProblemGenerator.gd").new()
 
@@ -15,12 +17,16 @@ var ot_lost_combo = true
 var boolean_state = true
 var can_spawn_bubbles = true
 
+# Cantidad de problemas resueltos a resolver para que se muestre un gran problema
+var amount_for_big_problem = 5
+# Numero de problemas resueltos actuales para el gran problema
+var count_for_big_problem = 0  
+
 func _ready():
 	Main.reset_bb()
 	generate_first_bubbles()
 	
 	$ComboBar/ComboTime.wait_time = COMBO_TIME / 100.0
-	print($ComboBar/ComboTime.wait_time)
 	
 	connect("lost_combo", self, "_on_lost_combo")
 	connect("win_combo", self, "_on_win_combo")
@@ -32,26 +38,74 @@ func _ready():
 
 func generate_first_bubbles():
 	for i in range(0, CANT_BUBBLES):
-		create_bubble()
+		create_bubble_according_to_level()
 	
 func create_bubble():
 	if not can_spawn_bubbles:
 		return
 	
-	var bubble = load("res://Game/MiniGames/BubbleBoolean/Bubbles/Bubble1.tscn").instance()
+	var bubble
 	
+	if big_problems:
+		if count_for_big_problem >= amount_for_big_problem:
+			bubble = load("res://Game/MiniGames/BubbleBoolean/Bubbles/Bubble2.tscn").instance()
+			bubble.get_node("Button/Text").text = rand_problem_generator.gen_rand_boolean_problem(false)
+			count_for_big_problem = 0
+			
+			bubble_things(bubble)
+		else:
+			bubble = load("res://Game/MiniGames/BubbleBoolean/Bubbles/Bubble1.tscn").instance()
+			bubble.get_node("Button/Text").text = rand_problem_generator.gen_rand_boolean_problem()
+			
+			bubble_things(bubble)
+	else:
+		bubble = load("res://Game/MiniGames/BubbleBoolean/Bubbles/Bubble1.tscn").instance()
+		bubble.get_node("Button/Text").text = rand_problem_generator.gen_rand_boolean_problem()
+			
+		bubble_things(bubble)
+	
+	count_for_big_problem += 1
+
+func create_bubble_according_to_level():
+	match Main.bb_mode:
+		Main.BBFAST:
+			create_bubble()
+		Main.BBNORMAL:
+			big_problems = true
+			time_to_end = 120
+			create_bubble()
+		Main.BBSLOW:
+			big_problems = true
+			rigid_mode = true
+			amount_for_big_problem = 2
+			time_to_end = 180
+			create_bubble()
+
+func bubble_things(bubble):
 	var rand_pos_x = int(round(rand_range(128, 768)))
 	var rand_pos_y = int(round(rand_range(128, 640)))
 	
 	bubble.position = Vector2(rand_pos_x, rand_pos_y)
-	bubble.get_node("Button/Text").text = rand_problem_generator.gen_rand_boolean_problem()
-	
 	bubble.connect("correct", self, "_on_correct", [bubble])
 	bubble.connect("incorrect", self, "_on_incorrect", [bubble])
 	
 	bubble.add_to_group("Bubble1")
 	
+	if rigid_mode:
+		bubble.mode = bubble.MODE_RIGID
+	
 	add_child(bubble)
+
+func dead_bubble(bubble):
+	bubble.disconnect("correct", self, "_on_correct")
+	bubble.disconnect("incorrect", self, "_on_incorrect")
+
+func update_score():
+	$Black/Score.text = str(Main.win_score)
+
+func update_combo_amount_text():
+	$ComboAnim.play("show_combo_amount")
+	$ComboBar/Combos.text = str("X", combo_amount)
 
 func _on_Back_pressed():
 	SoundManager.select_sound(SoundManager.BUTTON)
@@ -65,13 +119,6 @@ func _on_Back_pressed():
 	
 	get_tree().change_scene("res://Game/MainScreens/Modes.tscn")
 
-func dead_bubble(bubble):
-	bubble.disconnect("correct", self, "_on_correct")
-	bubble.disconnect("incorrect", self, "_on_incorrect")
-
-func update_score():
-	$Black/Score.text = str(Main.win_score)
-	
 func _on_TrueOrFalse_toggled(button_pressed):
 	if button_pressed:
 		boolean_state = false
@@ -81,7 +128,8 @@ func _on_TrueOrFalse_toggled(button_pressed):
 		$Black/TrueOrFalse/Text.text = "True"
 
 func _on_correct(bubble):
-	create_bubble()
+	create_bubble_according_to_level()
+	
 	$ComboBar/ComboBar.value = 100
 	
 	Main.win_score += 1
@@ -91,7 +139,8 @@ func _on_correct(bubble):
 	dead_bubble(bubble)
 	
 func _on_incorrect(bubble):
-	create_bubble()
+	create_bubble_according_to_level()
+	
 	$ComboBar/ComboBar.value = 0
 	
 	Main.win_score -= 5
@@ -116,10 +165,6 @@ func _on_win_combo():
 func _on_lost_combo():
 	combo_amount = 0
 	$ComboAnim.play_backwards("show_combo_amount")
-	
-func update_combo_amount_text():
-	$ComboAnim.play("show_combo_amount")
-	$ComboBar/Combos.text = str("X", combo_amount)
 
 func _on_ComboTime_timeout():
 	if $ComboBar/ComboBar.value == 100:

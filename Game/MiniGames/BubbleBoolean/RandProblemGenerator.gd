@@ -13,6 +13,7 @@ var booleans = [false, false]
 var oprel
 
 var expresion = []
+var big_expresion = []
 
 func _init():
 	randomize()
@@ -21,16 +22,23 @@ func gen_rand_boolean_problem(mini = true):
 	if mini:
 		reset_values()
 		return gen_rand_mini_boolean_problem()
+	else:
+		reset_values(false)
+		return gen_rand_big_boolean_problem()
 
-func reset_values():
+func reset_values(except_big_expression = true):
 	has_not = false
 	is_numeric = false
 	
 	nums = [0, 0] 
 	booleans = [false, false]
-	# Operador relacional
+	
+	oprel = ""
 	
 	expresion = []
+	
+	if not except_big_expression:
+		big_expresion = []
 
 func gen_rand_mini_boolean_problem():
 	# Tiene not??
@@ -91,6 +99,25 @@ func build_expresion():
 		result = result.to_lower()
 	
 	return result
+
+func gen_rand_big_boolean_problem():
+	big_expresion.append(gen_rand_mini_boolean_problem())
+	
+	if 1 == int(round(rand_range(0,1.45))):
+		big_expresion.append(" and ")
+	else:
+		big_expresion.append(" or ")
+	
+	reset_values()
+	big_expresion.append(gen_rand_mini_boolean_problem())
+	
+	var result = (str(big_expresion)).replace(", ", "")
+	result = result.replace("[", "")
+	result = result.replace("]", "")
+
+	print(result)
+
+	return result
 	
 static func eval(input):
 	var script = GDScript.new()
@@ -99,8 +126,5 @@ static func eval(input):
 
 	var obj = Reference.new()
 	obj.set_script(script)
-
-#	var result = obj.eval()
-#	print("result: ", result)
 
 	return obj.eval()
