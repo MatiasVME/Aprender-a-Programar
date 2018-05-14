@@ -14,6 +14,13 @@ func _ready():
 	if Main.debug and Main.current_chapter == null:
 		Main.current_chapter = 1
 		Main.current_stage = Main.THEORY
+	
+	if not (Main.data["GoogleGames"] and Main.google_games != null):
+		 $Leaderboard.hide()
+		
+	# Guarda en google games
+	if Main.data["GoogleGames"] and Main.google_games != null:
+		Main.google_games.submit_leaderboard(Main.data["Score"], "CgkI1raHjpUfEAIQBA")
 
 func _on_X2_pressed():
 	SoundManager.select_sound(SoundManager.BUTTON)
@@ -61,7 +68,7 @@ func update_text():
 func save_all(is_continue = false):
 	Main.data["Score"] += Main.win_score
 	Main.data["Money"] += Main.win_money
-	
+
 	var cap = str("Cap", Main.current_chapter)
 	
 	if Main.current_stage == Main.THEORY:
@@ -152,3 +159,5 @@ func _on_Continue_pressed():
 	
 	save_all(true)
 	
+func _on_Leaderboard_pressed():
+	Main.google_games.show_leaderboard("CgkI1raHjpUfEAIQBA")

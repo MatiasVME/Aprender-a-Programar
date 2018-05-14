@@ -3,7 +3,7 @@ extends Node
 const RES_X = 1280
 const RES_Y = 720
 
-var version = "v1.3.0"
+var version = "v1.3.3"
 var music_enable = true
 var sound_enable = true
 
@@ -13,6 +13,7 @@ var pseudocode_max_level = 1
 
 var firebase
 var google_user
+var google_games
 
 # User
 var current_user = null
@@ -48,6 +49,9 @@ var bb_mode = BBMode.BBFAST
 var data
 const DATA_VERSION = 4
 
+# Google Games
+var ot_google_games = true
+
 func _ready():
 	randomize()
 
@@ -57,6 +61,7 @@ func _ready():
 		Persistence.mode = Persistence.MODE_TEXT
 	else:
 		Persistence.mode = Persistence.MODE_ENCRYPTED
+		Persistence.debug = false
 		
 	data = Persistence.get_data(current_user)
 
@@ -90,7 +95,12 @@ func reset_values():
 	win_money = 0
 	reward_amount = 1
 	lifes = 1
-	
+
+func init_google_games():
+	if OS.get_name() == "Android":
+		google_games = Engine.get_singleton("GooglePlay")
+		google_games.init(get_instance_id())
+
 func reset_bb():
 	reset_values()
 	
@@ -98,10 +108,17 @@ func reset_bb():
 
 func all_data_config():
 	firebase_config()
-#	firebase_auth_config()
-#	google_user = firebase_get_google_user()
 	
 	create_data_if_not_exist()
+	
+	# Para las versiones que no tienen GoogleGames
+	# se crea un google games
+	if data.has("GoogleGames"):
+		if data["AcceptPrivacyPolicy"] and data["GoogleGames"]:
+			init_google_games()
+	else:
+		data["GoogleGames"] = false
+		Persistence.save_data(Main.current_user)
 
 func firebase_config():
 	if OS.get_name() == "Android":
@@ -141,6 +158,13 @@ func _receive_message(tag, from, key, data):
 			current_user = firebase_get_google_user()["name"]
 			self.data = Persistence.get_data(current_user)
 			create_data_if_not_exist()
+	
+	if from == "GooglePlay":
+		debug("[Debug] Key: ", key, " Data: ", data)
+		
+		if google_games != null and ot_google_games:
+			ot_google_games = false
+			
 
 func firebase_get_google_user():
 	if firebase != null:
@@ -193,6 +217,7 @@ func create_data_if_not_exist():
 				}
 			}
 		}
+		data["GoogleGames"] = false
 		
 		Persistence.save_data(current_user)
 		

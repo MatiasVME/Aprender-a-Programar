@@ -24,6 +24,17 @@ var count_for_big_problem = 0
 
 func _ready():
 	Main.reset_bb()
+	
+	match Main.bb_mode:
+		Main.BBNORMAL:
+			big_problems = true
+			time_to_end = 90
+		Main.BBSLOW:
+			big_problems = true
+			rigid_mode = true
+			amount_for_big_problem = 2
+			time_to_end = 120
+	
 	generate_first_bubbles()
 	
 	$ComboBar/ComboTime.wait_time = COMBO_TIME / 100.0
@@ -31,14 +42,14 @@ func _ready():
 	connect("lost_combo", self, "_on_lost_combo")
 	connect("win_combo", self, "_on_win_combo")
 	
-	$Black/Time.text = str(time_to_end)
-	
 	MusicManager.select_music(MusicManager.THEORY)
 	MusicManager.play_music()
+	
+	$Black/Time.text = str(time_to_end)
 
 func generate_first_bubbles():
 	for i in range(0, CANT_BUBBLES):
-		create_bubble_according_to_level()
+		create_bubble()
 	
 func create_bubble():
 	if not can_spawn_bubbles:
@@ -65,21 +76,6 @@ func create_bubble():
 		bubble_things(bubble)
 	
 	count_for_big_problem += 1
-
-func create_bubble_according_to_level():
-	match Main.bb_mode:
-		Main.BBFAST:
-			create_bubble()
-		Main.BBNORMAL:
-			big_problems = true
-			time_to_end = 120
-			create_bubble()
-		Main.BBSLOW:
-			big_problems = true
-			rigid_mode = true
-			amount_for_big_problem = 2
-			time_to_end = 180
-			create_bubble()
 
 func bubble_things(bubble):
 	var rand_pos_x = int(round(rand_range(128, 768)))
@@ -128,7 +124,7 @@ func _on_TrueOrFalse_toggled(button_pressed):
 		$Black/TrueOrFalse/Text.text = "True"
 
 func _on_correct(bubble):
-	create_bubble_according_to_level()
+	create_bubble()
 	
 	$ComboBar/ComboBar.value = 100
 	
@@ -139,7 +135,7 @@ func _on_correct(bubble):
 	dead_bubble(bubble)
 	
 func _on_incorrect(bubble):
-	create_bubble_according_to_level()
+	create_bubble()
 	
 	$ComboBar/ComboBar.value = 0
 	

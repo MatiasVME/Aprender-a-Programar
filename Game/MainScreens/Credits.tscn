@@ -9,6 +9,8 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 60
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -121,7 +123,7 @@ bbcode_text = "[center]
 [color=yellow]Matias Muñoz Espinoza:[/color]
 [color=green][url=https://furygames.itch.io][Itch.io][/url] [url=https://www.facebook.com/FuryGamesOrg/][Fanpage FuryGames][/url] [url=https://www.youtube.com/user/ElementalCodeNet][Youtube][/url][/color]
 [color=yellow]Levc:[/color]
-[color=green][url=https://soundcloud.com/levc-studio/][SoundCloud][/url][/color]
+[color=green][url=https://soundcloud.com/levc-studio/][SoundCloud][/url][url=https://twitter.com/LEVC_studio][Twitter][/url][/color]
 [color=yellow]Cristian Muñoz Espinoza:[/color]
 [color=green][url=https://www.youtube.com/channel/UC3ot9mOdBg0TmE1Lz5ppeSA][Youtube][/url][/color]
 [/center]"
@@ -141,7 +143,7 @@ Contact
 Matias Muñoz Espinoza:
 [Itch.io] [Fanpage FuryGames] [Youtube]
 Levc:
-[SoundCloud]
+[SoundCloud][Twitter]
 Cristian Muñoz Espinoza:
 [Youtube]
 "

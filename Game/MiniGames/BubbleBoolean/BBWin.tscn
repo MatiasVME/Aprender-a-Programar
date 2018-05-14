@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Game/MiniGames/BubbleBoolean/BBWin.gd" type="Script" id=1]
 [ext_resource path="res://Game/Backgrounds/RandomBackground.tscn" type="PackedScene" id=2]
@@ -9,34 +9,40 @@
 [ext_resource path="res://Game/Buttons/Reload/Reload-Normal.png" type="Texture" id=7]
 [ext_resource path="res://Game/Buttons/Reload/Reload-Pressed.png" type="Texture" id=8]
 [ext_resource path="res://Game/Buttons/Commons/Back.tscn" type="PackedScene" id=9]
-
-[sub_resource type="DynamicFont" id=2]
-
-size = 35
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 4 )
-_sections_unfolded = [ "Font", "Settings" ]
+[ext_resource path="res://Game/Buttons/Leaderboard/Leaderboard.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 50
+size = 35
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
+
+size = 50
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
 
 size = 32
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource_name = "show"
 length = 2.0
 loop = false
 step = 0.1
@@ -135,6 +141,7 @@ position = Vector2( 80, 592 )
 scale = Vector2( 0.00705853, 0.00705853 )
 
 [node name="Data" type="Node2D" parent="." index="2"]
+editor/display_folded = true
 scale = Vector2( 1e-05, 1e-05 )
 _sections_unfolded = [ "Rect", "Transform" ]
 
@@ -152,7 +159,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Puntaje Ganado: 99999"
@@ -177,7 +184,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Puntaje Total: 99999"
@@ -202,7 +209,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Dinero Ganado: 99999"
@@ -227,7 +234,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Dinero Total: 99999"
@@ -252,7 +259,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Combo Max: 999"
@@ -277,7 +284,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Combo Record: 999"
@@ -303,7 +310,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.67451, 0.929412, 0.054902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Puntaje Record: 999"
@@ -329,7 +336,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.933333, 0.898039, 0.0509804, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Has Ganado"
@@ -376,7 +383,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.2, 0.278431, 0.94902, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Money"
@@ -439,7 +446,7 @@ autoplay = "show"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show = SubResource( 3 )
+anims/show = SubResource( 4 )
 blend_times = [  ]
 
 [node name="Timer" type="Timer" parent="." index="9"]
@@ -448,7 +455,39 @@ wait_time = 3.0
 one_shot = false
 autostart = true
 
+[node name="Leaderboard" parent="." index="10" instance=ExtResource( 10 )]
+margin_top = 16.0
+margin_bottom = 141.0
+
+[node name="ConfirmConnectGoogleGames" type="ConfirmationDialog" parent="." index="11"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.0
+margin_top = -56.0
+margin_right = -23.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 200, 70 )
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Confirmar decisión…"
+resizable = false
+dialog_text = "¿Desea conectarse a Google Play Games?
+Luego puede deshacer esta opción en opciones."
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Dialog", "Rect" ]
+
 [connection signal="pressed" from="X2" to="." method="_on_X2_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Leaderboard" to="." method="_on_Leaderboard_pressed"]
+[connection signal="confirmed" from="ConfirmConnectGoogleGames" to="." method="_on_ConfirmConnectGoogleGames_confirmed"]

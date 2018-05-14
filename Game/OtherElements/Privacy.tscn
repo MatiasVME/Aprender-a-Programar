@@ -7,6 +7,8 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -15,6 +17,8 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 [sub_resource type="DynamicFont" id=2]
 
 size = 30
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -65,14 +69,23 @@ bbcode_text = "[b]Acerca de las políticas de privacidad[/b]
 Con motivo de mejorar la experiencia de usuario utilizamos servicios de terceros que piden información adiccional, infomacion que lo puede identificar.
 
 Las herramientas que utilizamos son las siguientes:
-+ Firebase (Todas o la mayoría de sus funciones, incluyen: Autenticación, Analytics, FireStore, etc.)
++ Firebase
 + AdMob
 + Google Play Services
-+ Datos de juego (Como: score, dinero de juego, niveles pasados, etc.)
++ Datos de juego que se guardan en el dispositivo (Como: score, niveles pasados, etc.)
 
-Para más infomación sobre las herramientas, de terceros, utilizadas para mejorar la aplicación y las políticas de privacidad. Por favor vea [url=https://furygames.github.io/privacy_policy_aap.html]las políticas de privacidad (Tap)[/url].
+Para más infomación sobre las herramientas, de terceros, utilizadas para mejorar la aplicación y acerca de las políticas de privacidad. Por favor vea [url=https://furygames.github.io/privacy_policy_aap.html]las políticas de privacidad (Tap)[/url].
 
-Si no esta de acuerdo con algún punto de esta información, puede desinstalar la aplicación.
+Si no esta de acuerdo con algún punto de esta información, puede desinstalar la aplicación, de momento no hemos activado los servicios de terceros, estos se activan al aceptar.
+
+Y si en algún momento no esta de acuerdo con esta información, puede desinstalar la aplicación y se inhabilitarán los servicios en esta aplicación.
+
+De Firebase estamos utilizando las siguientes funciones:
++ Analytics : Para análisis
++ Admob : Publicidad
++ RemoteConfig : Configuración de la aplicación de forma remota
++ A/B Testing : Testing para la aplicación
++ Cloud Messaging : Puede recibir mensajes de la aplicación
 "
 visible_characters = -1
 percent_visible = 1.0
@@ -83,19 +96,28 @@ text = "Acerca de las políticas de privacidad
 Con motivo de mejorar la experiencia de usuario utilizamos servicios de terceros que piden información adiccional, infomacion que lo puede identificar.
 
 Las herramientas que utilizamos son las siguientes:
-+ Firebase (Todas o la mayoría de sus funciones, incluyen: Autenticación, Analytics, FireStore, etc.)
++ Firebase
 + AdMob
 + Google Play Services
-+ Datos de juego (Como: score, dinero de juego, niveles pasados, etc.)
++ Datos de juego que se guardan en el dispositivo (Como: score, niveles pasados, etc.)
 
-Para más infomación sobre las herramientas, de terceros, utilizadas para mejorar la aplicación y las políticas de privacidad. Por favor vea las políticas de privacidad (Tap).
+Para más infomación sobre las herramientas, de terceros, utilizadas para mejorar la aplicación y acerca de las políticas de privacidad. Por favor vea las políticas de privacidad (Tap).
 
-Si no esta de acuerdo con algún punto de esta información, puede desinstalar la aplicación.
+Si no esta de acuerdo con algún punto de esta información, puede desinstalar la aplicación, de momento no hemos activado los servicios de terceros, estos se activan al aceptar.
+
+Y si en algún momento no esta de acuerdo con esta información, puede desinstalar la aplicación y se inhabilitarán los servicios en esta aplicación.
+
+De Firebase estamos utilizando las siguientes funciones:
++ Analytics : Para análisis
++ Admob : Publicidad
++ RemoteConfig : Configuración de la aplicación de forma remota
++ A/B Testing : Testing para la aplicación
++ Cloud Messaging : Puede recibir mensajes de la aplicación
 "
 scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "BBCode", "custom_fonts" ]
+_sections_unfolded = [ "BBCode" ]
 
 [connection signal="meta_clicked" from="Text" to="." method="_on_Text_meta_clicked"]

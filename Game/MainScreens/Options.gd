@@ -1,7 +1,8 @@
 extends Node
 
 func _ready():
-	pass
+	if Main.data["GoogleGames"]:
+		$All/GoogleGamesCheck.pressed = true
 
 func _on_Back_pressed():
 	SoundManager.select_sound(SoundManager.BUTTON)
@@ -32,3 +33,15 @@ func _on_DeleteData_pressed():
 	SoundManager.play_sound()
 	
 	$ConfirmationDeleteData.show()
+
+func _on_GoogleGamesCheck_toggled(button_pressed):
+	if button_pressed:
+		Main.init_google_games()
+		Main.data["GoogleGames"] = true
+		Persistence.save_data(Main.current_user)
+	else:
+		if Main.google_games != null:
+			Main.google_games.logout()
+		
+		Main.data["GoogleGames"] = false
+		Persistence.save_data(Main.current_user)
